@@ -153,6 +153,15 @@ app.get('/ListProduction', (req:string, res:any) => {
 	})
 })
 
+app.post('/UpdateProductionQuantity', (req, res:any) => {
+	const sql = 'UPDATE Production SET quantity = ? WHERE id = ?';
+	const value = [req.body.quantity, req.body.id]
+	DB.query(sql, value, (err, data) => {
+		if(err) return res.json(err)
+			return res.json({Status: 'TRUE'})
+	})
+})
+
 app.get('/ListImgGallery', (req:string, res:any) => {
 	const sql = 'SELECT * from galleryProduct';
 	DB.query(sql, (err, data) => {
