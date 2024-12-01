@@ -1,0 +1,94 @@
+@import '../../style/config/color';
+@import './../../style/config/fonts';
+
+
+.Content_categories{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	column-gap: 50px;
+	row-gap: 50px;
+	&_Production{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		row-gap: 10px;
+		border-radius: 8px;
+		background-color: #f5efe9;
+		padding: 15px;
+		width: 350px;
+		height: 600px;
+		position: relative;
+		&__status{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			right: 20px;
+		}
+		img{
+			width: 100%;
+			border-radius: 8px;
+		}
+		&__title{
+			font-size: 20px;
+			font-weight: bold;
+			color: $GryBlackText;
+		}
+		&__article{
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: flex-start;
+			column-gap: 10px;
+			width: 100%;
+			p{
+				font-size: 17px;
+				color: $GryBlackText;
+			}
+			p:nth-child(2){
+				font-family: "Roboto", sans-serif;
+			}
+
+		}
+		&__price{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			span{
+				display: flex;
+				flex-direction: row;
+				color: $RedColor_hover;
+				h3{
+					font-weight: 500;
+					font-family: "Roboto", sans-serif;
+					font-size: 23px;
+				}
+			}
+			&_BTNBasket{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 50px;
+				height: 50px;
+				font-size: 27px;
+				border-radius: 8px;
+				color: $RedColor_hover;
+				background-color: #e9e3dd;
+				transition: all 0.3s ease;
+				&:hover{
+					background-color: #ebe7e2;
+					color: $RedColor;
+				}
+			}
+		}
+	}
+
+}

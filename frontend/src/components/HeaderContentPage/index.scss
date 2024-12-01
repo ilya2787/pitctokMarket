@@ -1,0 +1,44 @@
+@import '../../style/config/color';
+@import '../../style/config/fonts';
+
+.HeaderContentPage{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	width: 100%;
+	background: linear-gradient(90deg, rgba(39,1,1,1) 0%, rgba(5,1,1,1) 78%);
+	padding: 30px 15px;
+	position: relative;
+	z-index: 5;
+	&_Contact{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		&_Social{
+			display: flex;
+			flex-direction: row;
+			column-gap: 25px;
+			margin-bottom: 20px;
+		}
+		&_Phone{
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	&_Title{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		column-gap: 100px;
+		img{
+			width: 120px;
+			opacity: 32%;
+		}
+	}
+	&_User{
+		padding-top: 50px;
+	}
+}

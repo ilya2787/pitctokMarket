@@ -1,0 +1,279 @@
+@import './../../style/config/color';
+@import './../../style/config/fonts';
+.MainBlockMenu{
+	position: relative;
+}
+
+.Nav_BorderTop{
+	position: relative;
+	width: 100%;
+	height: 8px;
+	z-index: 3;
+	background-color: $BackgroundColorAfter;
+}
+.Nav_BorderTop2{
+	position: relative;
+	width: 100%;
+	height: 15px;
+	z-index: 3;
+	background-color: $BackgroundColorBefore;
+}
+.Nav{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: 50px;
+	padding: 30px;
+	background-color: $BackgroundColorNav;
+	position: relative;
+	z-index: 3;
+	ul{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		flex-grow: 2;
+		li{
+			a{
+				font-size:25px;
+				color: $GryColorText;
+				transition: all 0.3s ease;
+				&:hover{
+					color: $RedColorText;
+				}
+			}
+			.Nav__BTNArrow{
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				font-size:25px;
+				color: $GryColorText;
+				transition: all 0.3s ease;
+				&:hover{
+					color: $RedColorText;
+				}
+				&__Active{
+					color: $RedColorText;
+				}
+				&__ActiveIcon{
+					animation: ActiveArrow 1s forwards;
+				}
+				&__ClosedIcon{
+					animation: ClosedArrow 1s forwards;
+				}
+				span{
+					height: 30px;
+					font-size: 30px;
+					color: $BTNArrow;
+				}
+			}
+		}
+	}
+	&__search{
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		align-items: center;
+		flex-grow: 2;
+		input[type=text]{
+			background-color: $BackgroundSearch;
+			width: 100%;
+			height: 40px;
+			border-radius: 8px 0 0 8px;
+			padding: 0 10px;
+			color: $GryBlackText;
+			font-size: 18px;
+		}
+		button{
+			background-color: $BackgroundSearch;
+			width: 50px;
+			height: 40px;
+			border-radius: 0 8px 8px 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 28px;
+			color: $RedColorText;
+			transition: all 0.3s ease;
+			&:hover{
+				color: $RedColorText_hover;
+			}
+		}
+	}
+}
+.CatalogNav{
+	position: relative;
+	bottom: 100vh;
+	z-index: -1;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+	padding: 60px 30px;
+	background-color: $BackgroundColorCatalogNav;
+	border-bottom: 5px solid $RedColor;
+	&.Active{
+		animation: ActiveCatalogNav 0.5s forwards;
+	}
+	&.Closed{
+		animation: ClosedCatalogNav 2s forwards;
+	}
+	ul{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		row-gap: 30px;
+		column-gap: 30px;
+		width: 100%;
+		li{
+			a{
+				font-size: 25px;
+				color: $GryBlackText;
+				transition: all 0.3s ease;
+				&:hover{
+					color: $RedColor_hover;
+				}
+			}
+		}
+	}
+}
+.BlockSearch{
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+	width: 37%;
+	max-height: 350px;
+	top: -100%;
+	right: 50px;
+	padding: 50px 20px 50px 20px;
+	background-color: #331B1B;
+	display: flex;
+	flex-direction: column;
+	row-gap: 30px;
+	border-radius: 0 0 8px 8px;
+	overflow-y: scroll;
+	&::-webkit-scrollbar-track {
+		background: $RedColor_hover;        /* цвет дорожки */
+	}
+	&::-webkit-scrollbar {
+		width: 7px;               /* ширина scrollbar */
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: $GryColorText;    /* цвет плашки */
+		border-radius: 5px;       /* закругления плашки */
+	}
+	&.ActiveSearch{
+		animation: ActiveBlockSearch 0.9s forwards;
+	}
+	&.ClosedSearch{
+		animation: ClosedBlockSearch 0.5s forwards;
+	}
+	&__item{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		column-gap: 30px;
+		align-items: center;
+		border-bottom: 2px solid $RedColor_hover;
+		padding-bottom: 20px;
+		img{
+			width: 80px;
+			border-radius: 8px;
+		}
+		&__link{
+			font-size: 20px;
+			letter-spacing: 2px;
+			color: $GryColorText;
+			transition: all 0.3s ease;
+			&:hover{
+				color: aliceblue;
+			}
+		}
+		&__price{
+			font-size: 20px;
+			font-weight: 500;
+			font-family: "Roboto", sans-serif;
+			color: $RedColor;
+		}
+	}
+	&__h3{
+		width: 100%;
+		text-align: center;
+		letter-spacing: 1px;
+		color: $GryColorText;
+		font-size: 20px;
+	}
+}
+
+@keyframes ActiveArrow {
+	0%{
+		transform: rotate(0);
+	}
+	100%{
+		transform: rotate(180deg);
+	}
+}
+@keyframes ClosedArrow {
+	0%{
+		transform: rotate(180deg);
+	}
+	100%{
+		transform: rotate(0);
+	}
+}
+@keyframes ActiveCatalogNav {
+	0%{
+		bottom: 100vh;
+		z-index: -1;
+	}
+	55%{
+		z-index: -1;
+	}
+	100%{
+		bottom: 0;
+		z-index: 2;
+	}
+}
+@keyframes ClosedCatalogNav {
+	0%{
+		bottom: 0;
+		z-index: 2;
+	}
+	22%{
+		z-index: -1;
+		opacity: 0;
+	}
+	100%{
+		bottom: 100vh;
+		z-index: -1;
+	}
+}
+@keyframes ActiveBlockSearch{
+	0%{
+		top: -100%;
+		z-index: -1;
+		opacity: 0;
+	}
+	100%{
+		top: 100px;
+		z-index: 2;
+	}
+}
+@keyframes ClosedBlockSearch{
+	0%{
+		top: 100px;
+		z-index: 2;
+	}
+	22%{
+		z-index: -1;
+		opacity: 0;
+	}
+	100%{
+		top: -100%;
+		z-index: -1;
+	}
+}

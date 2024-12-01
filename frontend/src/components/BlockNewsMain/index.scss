@@ -1,0 +1,89 @@
+@import '../../style/config/color';
+
+@mixin settingLine($Width){
+	height: 5px;
+	width: $Width;
+	border-radius: 20px;
+	background-color: #B73737;
+}
+
+
+.ContentBlockNews{
+	padding: 50px 15px;
+	&__title{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		column-gap: 30px;
+		&__Line1{
+			@include settingLine(15%)
+		}
+		&__Line2{
+			@include settingLine(100%)
+		}
+		h3{
+			font-size: 35px;
+			color: $GryBlackText;
+		}
+	}
+	&_List{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		row-gap: 50px;
+		width: 100%;
+		padding: 50px 0;
+		&__news{
+			width: 80%;
+			background-color: #fff;
+			padding: 10px 20px;
+			border-radius: 10px;
+			box-shadow: 5px 5px 6px 0 rgba(10, 10, 10, 0.274);
+			&__title{
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				padding: 10px 0;
+				border-bottom: 2px solid $RedColor;
+				h3{
+					font-size: 30px;
+					color: $GryBlackText;
+				}
+				p{
+					font-size: 18px;
+					color: $GryBlackText;
+				}
+			}
+			&__text{
+				padding: 20px 0;
+				p{
+					font-size: 18px;
+					line-height: 1.5em;
+					text-align: justify;
+					text-indent: 1.5em;
+					color: $GryBlackText;
+				}
+			}
+		}
+	}
+	&_BTN{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 300px;
+		height: 50px;
+		float: right;
+		margin-right: 50px;
+		color: #e9e8e8;
+		background-color: $RedColor;
+		font-size: 20px;
+		border-radius: 8px;
+		transition: all 0.3s ease;
+		&:hover{
+			background-color: $RedColor_hover;
+		}
+	}
+}

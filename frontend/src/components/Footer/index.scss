@@ -1,0 +1,88 @@
+@import '../../style/config/color';
+@import '../../style/config/fonts';
+
+@mixin SettingTitle{
+	color: $RedColorText;
+	font-size: 25px;
+	margin-bottom: 25px;
+}
+
+.Footer{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	column-gap: 750px;
+	margin-top: 50px;
+	padding: 30px 15px;
+	height: 700px;
+	position: relative;
+	background: linear-gradient(90deg, rgba(39,1,1,1) 0%, rgba(5,1,1,1) 78%);
+	&_left{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		height: 100%;
+		&__Logo_Fon{
+			position: absolute;
+			z-index: 0;
+			width: 550px;
+			transform: rotate(20deg);
+			opacity: 10%;
+			top: 30px;
+		}
+		&_Address{
+			margin-top: 200px;
+			h4{
+				@include SettingTitle()
+			}
+			p{
+				color: $GryColorText;
+				font-size: 25px;
+			}
+		}
+	}
+	&_right{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+		height: 100%;
+		&_MenuTitle{
+			@include SettingTitle()
+		}
+		&_Menu{
+			ul{
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				flex-wrap: wrap;
+				column-gap: 20px;
+				row-gap: 10px;
+				max-width: 400px;
+				li{
+					a{
+						color: $GryColorText;
+						font-size: 25px;
+					}
+				}
+			}
+		}
+		&_ContactTitle{
+			@include SettingTitle()
+		}
+		&_Contact{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: flex-start;
+			column-gap: 100px;
+			&__Social{
+				display: flex;
+				flex-direction: column;
+				row-gap: 40px;
+			}
+		}
+	}
+}

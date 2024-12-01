@@ -1,0 +1,285 @@
+@import '../../style/config/color';
+
+@mixin settingRadio {
+	input[type=radio]{
+		display: none;
+	}
+	label{
+		display: block; 
+		width: 100%;
+		font-size: 18px;
+		color: $GryBlackText;
+		padding: 10px 40px;
+		box-shadow:  -1px -1px 3px 1px #e9e0ce, 1px 1px 3px 1px #484644;
+		border-radius: 8px;
+		border: 2px solid transparent;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+	input[type=radio]:checked + label {
+		box-shadow: none;
+		border: 2px solid #e9e4da;
+		color: #BD7373;
+		font-weight: 500;
+	}
+}
+
+@mixin InputSetting() {
+	height: 40px;
+	width: 100%;
+	border-bottom: 2px solid $RedColor;
+	font-size: 18px;
+	color: $GryBlackText;
+	padding: 0 10px;
+}
+
+@mixin LabelSetting {
+	position: absolute;
+	left: 20px;
+	top: 10px;
+	color: $GryBlackText;
+	letter-spacing: 2px;
+	font-size: 18px;
+	transition: all 0.3s ease;
+}
+
+@mixin FocusInput {
+	input:focus ~ label, input:not(:placeholder-shown) ~ label {
+		top: 40px;
+		left: 0;
+		font-size: 16px;
+		color: $RedColorText_hover;
+	} 
+}
+
+@mixin settingTitleLine{
+	display: flex;
+	flex-direction: row;
+	column-gap: 20px;
+	font-size: 17px;
+	color: $GryBlackText;
+	p:first-child{
+		letter-spacing: 1px;
+	}
+}
+
+.ContentMakingAnOrder{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	&__Block{
+		width: 80%;
+		border-radius: 8px;
+		padding: 30px;
+		background-color: #f5efe9;
+		&__shippingMethod{
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+			column-gap: 30px;
+			h3{
+				font-size: 20px;
+				color: $GryBlackText;
+				letter-spacing: 2px;
+				font-weight: bold
+			}
+			&__pickup{
+				@include settingRadio();
+			}
+			&__Delivery{
+				@include settingRadio();
+			}
+		}
+		&__inform{
+			&__Delivery{
+				padding: 50px 0 0 0;
+				display: flex;
+				flex-direction: row;
+				column-gap: 40px;
+				&__address{
+					position: relative;
+					width: 100%;
+					&__inputAddress{
+						@include InputSetting();
+					}
+					label{
+						@include LabelSetting();
+					}
+					@include FocusInput();
+				}
+				&__idPostal{
+					position: relative;
+					width: 50%;
+					&__inputIdPostal{
+						@include InputSetting();
+					}
+					label{
+						@include LabelSetting();
+					}
+					@include FocusInput();
+				}
+			}
+			&__text{
+				padding: 50px 0 0 0;
+				text-align: justify;
+				font-size: 19px;
+				color: $GryBlackText;
+				letter-spacing: 2px;
+				font-weight: bold;
+			}
+		}
+		&__ListBasket{
+			padding: 50px 0;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+			flex-wrap: wrap;
+			column-gap: 30px;
+			row-gap: 30px;
+			&__content{
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					align-items: flex-start;
+					column-gap: 20px;
+					background-color: #f5efe9;
+					padding: 10px 20px;
+					border-radius: 8px;
+					position: relative;
+					img{
+						width: 100px;
+						border-radius: 8px;
+					}
+					&__info{
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+						row-gap: 5px;
+						&__title{
+							font-size: 20px;
+							color: $GryBlackText;
+							letter-spacing: 1px;
+						}
+						&__article{
+							@include settingTitleLine();
+							p:last-child{
+								font-family: "Roboto", sans-serif;
+							}
+						}
+						&__price{
+							@include settingTitleLine();
+							p:last-child{
+								color: $RedColor_hover;
+								font-family: "Roboto", sans-serif;
+							}
+						}
+						&__quantity{
+							@include settingTitleLine();
+							p:last-child{
+								font-family: "Roboto", sans-serif;
+							}
+						}
+						&__summa{
+							@include settingTitleLine();
+							p:last-child{
+								color: $RedColor_hover;
+								font-family: "Roboto", sans-serif;
+							}
+						}
+				}
+				}
+		}
+		&__FullPriceAndBTN{
+			display: flex;
+			width: 100%;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			&__fullPrice{
+				display: flex;
+				flex-direction: row;
+				column-gap: 20px;
+				h3{
+					display: flex;
+					flex-direction: row;
+					column-gap: 20px;
+					font-size: 21px;
+					color: $GryBlackText;
+					letter-spacing: 2px;
+					font-weight: bold;
+				}
+				p{
+					font-size: 22px;
+					color: $RedColor_hover;
+					font-family: "Roboto", sans-serif;
+				}
+			}
+			&__Send{
+				padding: 5px 40px;
+				font-size: 20px;
+				color: $GryBlackText;
+				background-color: #e9e0cf;
+				border-radius: 8px;
+				letter-spacing: 2px;
+				transition: all 0.3s ease;
+				&:hover{
+					background-color: #d9d0c0;
+				}
+			}
+		}
+	}
+	&__OrderModal{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		row-gap: 30px;
+		width: 100%;
+		padding: 0 30px;
+		h2{
+			font-size: 20px;
+			color: $GryBlackText;
+			letter-spacing: 2px;
+			text-align: justify;
+		}
+		p{
+			font-size: 20px;
+			color: $GryBlackText;
+			letter-spacing: 2px;
+			text-align: justify;
+		}
+		&__BTNOrderModal{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			width: 100%;
+			button{
+				font-weight: bold;
+				font-size: 25px;
+				color: $GryBlackText;
+				transition: all 0.3s ease;
+			}
+			button:first-child{
+				&:hover{
+					color: rgb(143, 180, 143);
+				}
+			}
+			button:last-child{
+				&:hover{
+					color: rgb(190, 145, 145);
+				}
+			}
+		}
+	}
+}
+.NotData{
+	width: 100%;
+	text-align: center;
+	font-size: 27px;
+	color: $RedColor_hover;
+	letter-spacing: 2px;
+}

@@ -1,0 +1,51 @@
+@import '../../style/config/color';
+@import '../../style/config/fonts';
+
+.Contact{
+	display: flex;
+	&__Phone_SaintPetersburg{
+		font-family: "Gabriela", serif;
+		h3{
+			color: $GryColorText;
+			font-size: 23px;
+			margin-bottom: 10px;
+			letter-spacing: 3px;
+		}
+		span{
+			font-size: 19px;
+			p{
+				color: $RedColorText;
+				margin-left: -25px;
+				margin-bottom: 8px;
+			}
+			a{
+				color: $GryColorText;
+				font-size: 18px;
+				letter-spacing: 3px;
+			}
+		}
+	}
+	&__Phone_Kaliningrad{
+		font-family: "Gabriela", serif;
+		display: flex;
+		h3{
+			color: $GryColorText;
+			font-size: 23px;
+			margin-bottom: 10px;
+			letter-spacing: 3px;
+		}
+		span{
+			font-size: 19px;
+			p{
+				color: $RedColorText;
+				margin-left: -25px;
+				margin-bottom: 8px;
+			}
+			a{
+				color: $GryColorText;
+				font-size: 18px;
+				letter-spacing: 3px;
+			}
+		}
+	}
+}

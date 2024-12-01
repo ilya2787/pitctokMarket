@@ -1,0 +1,85 @@
+@import '../../style/config/color';
+
+.Modal_background{
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	right: 0;
+	left: 0;
+	overflow: hidden;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 99;
+	background-color: $BackgroundColorFon_modal;
+	.Modal_container{
+		position: relative;
+		min-width: 50vw;
+		width: 70%;
+		max-width: 90%;
+		background-color: $BackgroundColorFonContent_modal;
+		margin: 20px 0 0 0;
+		border-radius: 8px;
+		min-height: 200px;
+		max-height: 90vh;
+		overflow-y: scroll;
+		scrollbar-width: none;
+		padding: 20px 0 20px 0;
+		@media (max-width:1200px) {
+			min-width: 90%;
+			max-width: 90%;
+		}
+		.TitleModal{
+			width: 100%;
+			text-align: center;
+			font-size: 24px;
+			color: $RedColorText;
+			padding: 0 0 10px 0;
+			border-bottom: 3px solid $LineTitle-modal;
+			transition: all 0.3s ease;
+		}
+		.btnClosed{
+			position: absolute;
+			top: -0.5px;
+			right: -0.5px;
+			font-size: 32px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 7px;
+			border-radius: 0 8px 0 20px;
+			color: #555555;
+			transition:all 0.3s ease;
+			&:hover{
+				color: $GryColorIcon_hover;
+				transform: rotate(180deg);
+			}
+		}
+		.Modal_content{
+			padding: 10px;
+		}
+	}
+}
+
+.entering, .entered{
+	opacity: 1;
+	transition: all 0.3s;
+}
+.entering .Modal_container,
+.entered .Modal_container{
+	top: 0;
+	transition: all 0.3s;
+}
+
+.exiting, .exited{
+	opacity: 0;
+	transition: all 0.3s;
+}
+
+.exiting .Modal_container,
+.exited .Modal_container{
+	transition: all 0.3s;
+	top: -100%;
+}

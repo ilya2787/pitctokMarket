@@ -1,0 +1,157 @@
+@import '../../style/config/color';
+
+@mixin settingInformP{
+	display: flex;
+	flex-direction: row;
+	column-gap: 10px;
+	p{
+		font-size: 20px;
+		color: $GryBlackText;
+		letter-spacing: 3px;
+	}
+	p:nth-child(1){
+		font-weight: bold;
+	}
+	p:nth-child(2){
+		color: #686868;
+		font-family: "Roboto", sans-serif;
+	}
+}
+
+@mixin settingIcon($Color){
+	color: $Color;
+	font-size: 25px;
+}
+
+.ItemProduct{
+	margin-top: -50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	border-radius: 8px;
+	background-color: #f5efe9;
+	padding: 30px;
+	&_top{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+		column-gap: 20px;
+		width: 100%;
+		&__IMGList{
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: flex-start;
+			column-gap: 20px;
+			height: 500px;
+			width: 500px;
+			&__Main{
+				width: 75%;
+				border-radius: 8px;
+			}
+			&__children{
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+				row-gap: 10px;
+				height: 100%;
+				width: 25%;
+				button{
+					img{
+						width: 100%;
+						border-radius: 8px;
+					}
+				}
+			}
+		}
+		&_information{
+			display: flex;
+			flex-direction: column;
+			flex: 1;
+			row-gap: 15px;
+			&_price{
+				font-family: "Roboto", sans-serif;
+				font-weight: 500;
+				font-size: 27px;
+				color: $RedColorText;
+			}
+			&_article{
+				@include settingInformP();
+			}
+			&_material{
+				@include settingInformP();
+			}
+			&_quantity{
+				@include settingInformP();
+			}
+			&_description{
+				display: flex;
+				flex-direction: column;
+				row-gap: 10px;
+				column-gap: 10px;
+				p{
+					font-size: 20px;
+					color: $GryBlackText;
+					letter-spacing: 3px;
+				}
+				p:nth-child(1){
+					font-weight: bold;
+				}
+				p:nth-child(2){
+					color: #4b4b4b;
+					font-size: 18px;
+					letter-spacing: 2px;
+					font-family: "Roboto", sans-serif;
+				}
+			}
+		}
+	}
+	&_bottom{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-top: 100px;
+		width: 100%;
+		&__availability{
+			display: flex;
+			flex-direction: row;
+			column-gap: 10px;
+			p{
+				font-size: 20px;
+				color: $GryBlackText;
+				letter-spacing: 2px
+			}
+			&__True{
+			@include settingIcon(#9CB99E);
+			}
+			&__False{
+			@include settingIcon($RedColor);
+			}
+		}
+		&__basket{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			column-gap: 15px;
+			background-color: #e9e3dd;
+			color: $GryBlackText;
+			padding: 10px 30px;
+			font-size: 20px;
+			border-radius: 8px;
+			transition: all 0.3s ease;
+			letter-spacing: 2px;
+			&__ICON{
+				height: 30px;
+				font-size: 27px;
+				color: $RedColor_hover;
+			}
+			&:hover{
+				background-color: #ebe7e2;
+			}
+		}
+	}
+}

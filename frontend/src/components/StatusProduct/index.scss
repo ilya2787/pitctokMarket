@@ -1,0 +1,30 @@
+@import '../../style/config/color';
+.Production__status{
+	&__Heard{
+		font-size: 30px;
+		color: white;
+		transition: all 0.3s ease;
+		&.Active{
+			color: red;
+		}
+	}
+	&__NEW{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		column-gap: 10px;
+		background-color: $RedColor_hover;
+		padding: 5px 13px 2px 13px;
+		border-radius: 8px;
+		span{
+			font-size: 20px;
+			color: White;
+		}
+		p{
+			text-transform: uppercase;
+			font-size: 20px;
+			color: white;
+		}
+	}
+}

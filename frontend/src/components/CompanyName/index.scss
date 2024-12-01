@@ -1,0 +1,19 @@
+@import '../../style/config/color';
+@import '../../style/config/fonts';
+.Title{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	h2{
+		font-family: ScrITCTT;
+		color: $RedColorText;
+	}
+	&__h3{
+		margin-top: -8%;
+		h3{
+			font-family: "Gabriela", serif;
+			text-transform: uppercase;
+			color: $GryColorText;
+		}
+	}
+}

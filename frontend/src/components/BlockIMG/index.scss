@@ -1,0 +1,42 @@
+@import '../../style/config/color';
+@import '../../style/config/fonts';
+
+@mixin Setting($FD){
+	display: flex;
+	flex-direction: $FD;
+	justify-content: center;
+	align-items: center;
+	column-gap: 100px;
+	img{
+		width: 400px;
+	}
+	p{
+		font-size: 60px;
+		color: #FFFEF8;
+		text-shadow: 2px 2px 0 #976E3F;
+	}
+}
+
+.ContentBlock{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	font-family: "Marck Script", cursive;
+	padding: 30px 0;
+	background-image: url('../../../public/img/FonBlockIMG.jpg');
+	background-color: rgba(23, 4, 4, 0.873);
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+	background-size: 100% auto;
+	background-blend-mode: multiply;
+	&_VintageFurniture{
+			@include Setting(row-reverse)
+	}
+	&_OakAndWalnut{
+		@include Setting(row)
+	}
+	&_Watch{
+		@include Setting(row-reverse)
+	}
+}

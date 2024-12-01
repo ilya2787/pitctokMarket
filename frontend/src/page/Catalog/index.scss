@@ -1,0 +1,232 @@
+@import '../../style/config/color';
+
+@mixin settingLine($Width){
+	height: 5px;
+	width: $Width;
+	border-radius: 20px;
+	background-color: #B73737;
+}
+
+.CatalogContent{
+	margin-top: -140px;
+	padding: 20px 15px 100px 15px;
+	&_Title{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		column-gap: 30px;
+		padding:50px 0;
+		&__Line1{
+			@include settingLine(15%)
+		}
+		&__Line2{
+			@include settingLine(100%)
+		}
+		h3{
+			font-size: 30px;
+			color: $GryBlackText;
+			min-width: max-content;
+		}
+
+	}
+	&__content{
+		display: flex;
+		flex-direction: row;
+		justify-content: 
+		space-between;
+		align-items: flex-start;
+		&__nav{
+			background-color: #f5efe9;
+			font-size: 20px;
+			padding: 20px 30px;
+			color: $GryBlackText;
+			border-radius: 8px;
+			&__title{
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				border-bottom: 2px solid $RedColor;
+				padding: 10px 0;
+				cursor: pointer;
+				h3{
+					font-size: 21px;
+					text-transform: uppercase;
+					letter-spacing: 4px;
+					color: $RedColor;
+					font-weight: bold;
+				}
+				&_icon{
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					color: $GryBlackText;
+					font-size: 35px;
+					margin-top: -5px;
+					transform: rotate(0);
+					transition: all 0.8s ease;
+					&.Active{
+						transform: rotate(180deg);
+					}
+				}
+				
+			}
+			&__link{
+				display: flex;
+				flex-direction: column;
+				row-gap: 7px;
+				margin-top: 25px;
+				width: 100%;
+				height: max-content;
+				overflow: hidden;
+				transition: height ease 0.9s;
+				&__item{
+					font-size: 22px;
+					color: $GryBlackText;
+					transition: all 0.3s ease;
+					letter-spacing: 2px;
+					&:hover{
+						color: $RedColor;
+					}
+				}
+			}
+		}
+		&_Product{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			&_filter{
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-end;
+				align-items: flex-start;
+				column-gap: 40px;
+				width: 100%;
+				&__available{
+					background-color: #f5efe9;
+					padding: 10px 30px;
+					border-radius: 8px;
+					input[type=checkbox]:checked,
+					input[type=checkbox]:not(:checked){
+						position: absolute;
+						left: -9999px;
+					}
+					input[type=checkbox]:checked + label, 
+					input[type=checkbox]:not(:checked) + label{
+							display: inline-block;
+							position: relative;
+							padding-left: 45px;
+							line-height: 32px;
+							font-size: 19px;
+							color: $GryBlackText;
+							letter-spacing: 2px;
+							cursor: pointer;
+					}
+					input[type=checkbox]:checked + label:before, 
+					input[type=checkbox]:not(:checked) + label:before{
+							content: "";
+							position: absolute;
+							left: 0px;
+							top: 0px;
+							width: 30px;
+							height: 30px;
+							border: 1px solid #dddddd;
+							background-color: #ffffff;
+							border-radius: 8px;
+					}
+					input[type="checkbox"]:checked + label:after, 
+					input[type="checkbox"]:not(:checked) + label:after{
+							content: "";
+							position: absolute;
+							-webkit-transition: all 0.2s ease;
+							-moz-transition: all 0.2s ease;
+							-o-transition: all 0.2s ease;
+							transition: all 0.2s ease;
+					}
+
+					input[type="checkbox"]:checked + label:after, 
+					input[type="checkbox"]:not(:checked) + label:after {
+							left: 6px;
+							top: 0px;
+							width: 28px;
+							height: 15px;
+							border-radius: 2px;
+							border-left: 6px solid #9CB99E;
+							border-bottom: 6px solid #9CB99E;
+							-webkit-transform: rotate(-45deg);
+							-moz-transform: rotate(-45deg);
+							-o-transform: rotate(-45deg);
+							-ms-transform: rotate(-45deg);
+							transform: rotate(-45deg);
+					}
+					input[type="checkbox"]:not(:checked) + label:after{
+							opacity: 0;
+					}
+
+					input[type="checkbox"]:checked + label:after{
+							opacity: 1;
+					}
+				}
+				&_sorting{
+					background-color: #f5efe9;
+					padding: 15px 30px 0 30px;
+					border-radius: 8px;
+					position: relative;
+					&_title{
+						display: flex;
+						flex-direction: row;
+						justify-content: space-between;
+						column-gap: 20px;
+						font-size: 19px;
+						color: $GryBlackText;
+						letter-spacing: 2px;
+						width: 280px;
+						cursor: pointer;
+						&_Icon{
+							color: $GryBlackText;
+							font-size: 25px;
+							transition: all 0.5s ease;
+							&.Active{
+								color: $RedColorText;
+							}
+						}
+					}
+					&_block{
+						position: absolute;
+						top: 50px;
+						left: 2.5%;
+						background-color: #f5efe9;
+						width: 95%;
+						border-radius: 0 0 8px 8px;
+						height: 0px;
+						overflow: hidden;
+						transition: height ease 0.9s;
+						z-index: 2;
+						ul{
+							display: flex;
+							flex-direction: column;
+							row-gap: 10px;
+							border-top: 2px solid $RedColor;
+							padding: 10px 10px 20px 10px;
+							li{
+								color: $GryBlackText;
+								font-size: 19px;
+								cursor: pointer;
+							}
+						}
+					}
+				}
+			}
+			&_page{
+				padding: 50px 20px;
+				margin-left: 15px;
+				width: 100%;
+
+			}
+		}
+	}
+}

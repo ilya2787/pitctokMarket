@@ -1,0 +1,167 @@
+@import '../../style/config/color';
+
+@mixin InputSetting($BorderR) {
+	height: 70px;
+	background-color: #f4f3ee;
+	width: 100%;
+	border-radius: $BorderR;
+	font-size: 18px;
+	color: $GryBlackText;
+	padding: 0 10px;
+}
+
+@mixin LabelSetting {
+	position: absolute;
+	left: 20px;
+	top: 24px;
+	color: $RedColorText;
+	font-size: 18px;
+	transition: all 0.3s ease;
+}
+
+@mixin LabelPlaceholder {
+	input:focus ~ label, input:not(:placeholder-shown) ~ label {
+		left: 70%;
+		font-size: 16px;
+		color: $RedColor_hover;
+	} 
+}
+
+.FormRegistration{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 70%;
+	&_section{
+		width: 50%;
+		position: relative;
+		@media (max-width:1600px) {
+			width: 80%;
+		}
+		@media (max-width: 1200px) {
+			width: 50%;
+		}
+		@media (max-width:1000px) {
+			width: 80%;
+		}
+	}
+	span{
+		position: absolute;
+		right: 0;
+		height: 5px;
+		width: 90%;
+		background-color: $BackgroundColorFonContent_modal;
+		border-radius: 2px 0 0 2px;
+		z-index: 2;
+		transition: all 0.3s ease;
+	}
+	.ValidPass{
+		background-color: rgb(186, 251, 186);
+	}
+	.NotValidPass{
+		background-color: $RedColor_hover;
+	}
+	&_FirsName{
+		position: relative;
+		input[type=text]{
+			@include InputSetting(8px 8px 0 0)
+		}
+		label{
+			@include LabelSetting()
+		}
+		@include LabelPlaceholder()
+	}
+	&_LastName{
+		position: relative;
+		input[type=text]{
+			@include InputSetting(0)
+		}
+		label{
+			@include LabelSetting()
+		}
+		@include LabelPlaceholder()
+	}
+	&_Phone{
+		position: relative;
+		&_InputPhone{
+			@include InputSetting(0)
+		}
+		label{
+			@include LabelSetting()
+		}
+		@include LabelPlaceholder()
+	}
+	&_Email{
+		position: relative;
+		input[type=Email]{
+			@include InputSetting(0)
+		}
+		label{
+			@include LabelSetting()
+		}
+		@include LabelPlaceholder()
+	}
+	&_Password{
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.instruction_pwd{
+			max-width: 450px;
+			background-color: #512e2e;
+			font-size: 17px;
+			padding: 10px 0;
+			color: $GryColorText;
+			text-align: center;
+			height: max-content;
+			transition: all 0.5s;
+		}
+		.offscreen{
+			transition: all 0.5s;
+			height: 0;
+			max-width: 450px;
+		}
+		&_pass{
+			@include InputSetting(0)
+		}
+		label{
+			@include LabelSetting()
+		}
+		@include LabelPlaceholder()
+	}
+	&_PasswordReplay{
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		z-index: 1;
+		&_passReplay{
+			@include InputSetting(0 0 0 8px)
+		}
+		label{
+			@include LabelSetting()
+		}
+		@include LabelPlaceholder()
+	}
+	&__BTN_Enter{
+		position: relative;
+		background-color: #f4f3ee;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100px;
+		width: 100px;
+		border-radius: 50%;
+		font-size: 35px;
+		border: 7px solid $BackgroundColorFonContent_modal;
+		z-index: 3;
+		color: $RedColor;
+		transition: all 0.3s ease;
+		margin-left: -40px;
+		&:hover{
+			color: $RedColor_hover;
+		}
+	}
+}

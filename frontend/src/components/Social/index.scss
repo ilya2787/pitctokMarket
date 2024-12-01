@@ -1,0 +1,31 @@
+@import './../../style/config/color';
+@import '../../style/config/fonts';
+.Social{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	&_Icon{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: clamp(30px, 3vw, 50px);
+		height: clamp(30px, 3vw, 50px);;
+		background-color: $BackgroundColorIconSocial;
+		font-size: clamp(20px, 2vw, 28px);
+		border-radius: 8px;
+		color: $ColorIconHeader;
+	}
+	span{
+		margin-left: 20px;
+		font-family: "Gabriela", serif;
+		.Social_LintTitle{
+			font-size: clamp(15px, 2vw, 20px);
+			color: $RedColorText;
+	}
+		p{
+			font-size: clamp(14px, 1.6vw, 16px);
+			color: $GryColorText;
+		}
+	}
+}

@@ -1,0 +1,129 @@
+@import '../../style/config/color';
+@import '../../style/config/fonts';
+
+@mixin BtnAuth {
+	padding: 15px 5px;
+	border-radius: 8px;
+	color: #9a9494;
+	transition: all 0.3s ease;
+}
+
+@mixin BtnAuth__Active {
+	color: #655858;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+@mixin settingBtnLinkBlockUser{
+	color: $GryColorIcon;
+	font-size: 20px;
+	padding: 5px 0;
+	font-family: "Vollkorn", serif;
+	letter-spacing: 3px;
+	transition: all 0.3s ease;
+	&:hover{
+		color: $RedColorText;
+	}
+}
+
+.BlockUser{
+	position: absolute;
+	right: 40px;
+	top: 130px;
+	min-width: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	background-color: $BackgroundColorBlockUser;
+	padding: 20px;
+	border: 4px solid #FFFEF8;
+	border-radius: 8px;
+	z-index: -1;
+	h2{
+		display: block;
+		min-width: 100%;
+		text-align: center;
+		font-size: 16px;
+		color: $GryColorText;
+		font-family: "Vollkorn", serif;
+		border-bottom: 3px solid $RedColorText;
+		padding: 0 0 5px 0;
+		letter-spacing: 3px;
+		margin-bottom: 5px;
+	}
+	&__AccountLink{
+		@include settingBtnLinkBlockUser();
+	}
+	button{
+		@include settingBtnLinkBlockUser();
+	}
+
+	a:nth-child(2){
+		margin-top: 10px;
+	}
+}
+.ActiveBlockUser{
+	animation: OpenBlockUser 1s forwards;
+}
+.CloseBlockUser{
+	animation: CloseBlockUser 1s forwards;
+}
+
+.ModalWindowAuthorization{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 100px;
+	&_Btn{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 50%;
+		margin-left: -30px;
+		height: 70px;
+		margin-top: 20px;
+		&__authorization{
+			@include BtnAuth();
+			&.Active{
+				@include BtnAuth__Active();
+			}
+		}
+		&__registration{
+			@include BtnAuth();
+			&.Active{
+				@include BtnAuth__Active();
+			}
+		}
+	}
+}
+
+@keyframes OpenBlockUser {
+	0%{
+		top: 130px;
+		opacity: 0;
+		z-index: -1;
+	}
+
+	100%{
+		top: 155px;
+		opacity: 1;
+		z-index: 3;
+	}
+}
+
+@keyframes CloseBlockUser {
+	0%{
+		top: 155px;
+		opacity: 1;
+		z-index: 3;
+	}
+
+	100%{
+		top: 130px;
+		opacity: 0;
+		z-index: -1;
+	}
+}

@@ -1,0 +1,17 @@
+@import '../../style/config/color';
+.ContentProdFavorites{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	column-gap: 20px;
+	row-gap: 20px;
+	padding: 50px 50px 100px 50px;
+	width: 100%;
+	&__empty{
+		font-size: 25px;
+		letter-spacing: 2px;
+		color: $RedColor_hover;
+	}
+}

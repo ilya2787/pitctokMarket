@@ -1,0 +1,21 @@
+@import '../style/config/color';
+@import '../style/config/fonts';
+
+.Content404{
+	background: linear-gradient(90deg, rgba(39,1,1,1) 0%, rgba(5,1,1,1) 78%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100svh;
+	h1:nth-child(1){
+		font-size: 100px;
+		font-family: ScrITCTT;
+		color: $RedColorText;
+	}
+	h1:nth-child(2){
+		font-size: 100px;
+		font-family: ScrITCTT;
+		color: $GryColorText;
+	}
+}

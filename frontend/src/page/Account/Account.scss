@@ -1,0 +1,511 @@
+@import '../../style/config/color';
+@import '../../style/config/fonts';
+
+@mixin settingUserData {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: 20px;
+	width: 370px;
+	p:first-child{
+		color: #A87171;
+		font-size: 30px;
+		max-height: 30px;
+	}
+	p:nth-child(2){
+		flex-grow: 1;
+		font-weight: 500;
+		letter-spacing: 2px;
+		color: $GryBlackText;
+		font-size: 18px;
+	}
+	button{
+		width: 30px;
+		height: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #fff;
+		border-radius: 3px;
+		color: $GryBlackText;
+		transition: all 0.3s ease;
+		&:hover{
+			background-color: #ededed;
+		}
+	}
+}
+
+@mixin settingDateAndQuantityOrder{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	column-gap: 20px;
+	p:first-child{
+		color: $GryBlackText;
+		font-size: 17px;
+		letter-spacing: 2px;
+	}
+	p:last-child{
+		color: $RedColor_hover;
+	}
+}
+
+.BlockAccountMain{
+	padding: 0 15px;
+}
+.ContentBlockAccount{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	&_NotAdmin{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+		width: 80%;
+		background-color: #f5efe9;
+		border-radius: 8px;
+		padding: 20px;
+		&_top{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-start;
+			width: 100%;
+			&__User{
+				flex-grow: 2;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				row-gap: 20px;
+				h2{
+					font-size: 25px;
+					color: $RedColor_hover;
+					letter-spacing: 4px;
+					font-weight: bold
+				}
+				&_Phone{
+					@include settingUserData();
+					&__UpdatePhone{
+						font-size: 18px;
+						letter-spacing: 2px;
+						color: $GryBlackText;
+						border-bottom: 2px solid #fff
+					}
+				}
+				&_Email{
+					@include settingUserData();
+					input[type=text]{
+						font-size: 18px;
+						letter-spacing: 2px;
+						color: $GryBlackText;
+						border-bottom: 2px solid #fff
+					}
+				}
+				&_Order{
+					@include settingUserData();
+					&__Link{
+						flex-grow: 1;
+						font-weight: 500;
+						letter-spacing: 2px;
+						color: $GryBlackText;
+						font-size: 18px;
+						transition: all 0.3s ease;
+						&:hover{
+							color: $RedColor_hover;
+						}
+					}
+				}
+			}
+			&__DateAndQuantityOrder{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				row-gap: 10px;
+				&__RegDate{
+					@include settingDateAndQuantityOrder();
+				}
+				&__QuantityOrder{
+					@include settingDateAndQuantityOrder();
+				}
+			}
+		}
+		&_center{
+			width: 100%;
+			padding: 10px 20px;
+			margin: 20px 0;
+			&__Title{
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				column-gap: 20px;
+				span:first-child{
+					width: 100%;
+					height: 5px;
+					background-color: $RedColor;
+				}
+				h3{
+					font-size: 20px;
+					color: $GryBlackText;
+					letter-spacing: 2px;
+				}
+				span:last-child{
+					width: 100%;
+					height: 5px;
+					background-color: $RedColor;
+				}
+			}
+			&__Product{
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: center;
+				width: 100%;
+				padding: 10px 0 20px 0;
+				overflow-x: scroll;
+				&::-webkit-scrollbar-track {
+					background: $RedColor;        /* цвет дорожки */
+				}
+				&::-webkit-scrollbar {
+					height: 5px;               /* ширина scrollbar */
+				}
+				&::-webkit-scrollbar-thumb {
+					background-color: $GryColorText;    /* цвет плашки */
+					border-radius: 5px;       /* закругления плашки */
+				}
+				&__item{
+					width: 150px;
+					position: relative;
+					&__Heard{
+						position: absolute;
+						top: 10px;
+						left: 10px;
+						font-size: 30px;
+					}
+					img{
+						width: 100%;
+						border-radius: 8px;
+					}
+				}
+				&__NoFavorites{
+					font-size: 20px;
+					color: $RedColor_hover;
+					letter-spacing: 2px;
+				}
+			}
+			
+		}
+		&_button{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			&__BTNPassword{
+				background-color: #E2DECF;
+				padding: 15px 40px;
+				font-size: 19px;
+				color: $GryBlackText;
+				letter-spacing: 2px;
+				border-radius: 8px;
+				transition: all 0.3s ease;
+				&:hover{
+					background-color: #d7d4c5;
+				}
+			}
+			&__BTNDeleteAccount{
+				background-color: #E8A6A6;
+				padding: 8px 10px 2px 10px;
+				font-size: 20px;
+				color: White;
+				border-radius: 8px;
+				transition: all 0.3s ease;
+				&:hover{
+					background-color: #d89b9b;
+				}
+			}
+		}
+	}
+	
+}
+
+
+@mixin settingBlockStatus{
+	font-size: 17px;
+	letter-spacing: 1px;
+	color: #749474;
+	background-color: #fff;
+	padding: 0 30px;
+	clip-path: polygon(0% 0%, 91% 0, 100% 50%, 91% 99%, 0% 100%);
+	min-width: 200px;
+	height: 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+@mixin settingInfoText($colorText) {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	column-gap: 10px;
+	p:nth-child(1){
+		font-size: 18px;
+		color: $GryBlackText;
+		font-weight: bold;
+	}
+	p:nth-child(2){
+		font-family: "Roboto", sans-serif;
+		color: $colorText;
+		font-size: 17px;
+	}
+}
+
+.BlockOrderUserList{
+	position: relative;
+	&__LinkContentAccount{
+		position: absolute;
+		top: 10px;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: max-content;
+		column-gap: 10px;
+		&__item{
+			font-size: 20px;
+			color: $RedColorText;
+		}
+		span{
+			color: #D2C6C4;
+		}
+	}
+	&__Content{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		&__item{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			row-gap: 25px;
+			width: 80%;
+			background-color: #f5efe9;
+			padding: 20px;
+			border-radius: 8px;
+			position: relative;
+			&__status{
+				display: flex;
+				flex-direction: row;
+				span:nth-child(1){
+					@include settingBlockStatus();
+					z-index: 3;
+				}
+				span:nth-child(2){
+					@include settingBlockStatus();
+					margin-left:-30px;
+					z-index: 2;
+				}
+				span:nth-child(3){
+					@include settingBlockStatus();
+					margin-left:-30px;
+					z-index: 1;
+				}
+			}
+			&__content{
+				width: 100%;
+				&__info{
+					display: flex;
+					flex-direction: row;
+					justify-content: flex-start;
+					align-items: flex-start;
+					column-gap: 20px;
+					img{
+						width: 100px;
+						border-radius: 8px;
+					}
+					&__text{
+						display: flex;
+						flex-direction: column;
+						justify-content: flex-start;
+						align-items: flex-start;
+						row-gap: 10px;
+						h3{
+							color: $RedColor_hover;
+							font-size: 20px;
+							font-weight: 500;
+							letter-spacing: 2px;
+						}
+						&__article{
+							@include settingInfoText($GryBlackText);
+						}
+						&__quantity{
+							@include settingInfoText($GryBlackText);
+						}
+						&__Delivery{
+							@include settingInfoText($GryBlackText);
+						}
+						&__Address{
+							@include settingInfoText($GryBlackText);
+						}
+						&__idPostal{
+							@include settingInfoText($GryBlackText);
+						}
+						&__Price{
+							@include settingInfoText($RedColor_hover);
+						}
+						&__totalAmount{
+							@include settingInfoText($RedColor_hover);
+						}
+					}
+				}
+			}
+			&__DateOrder{
+				position: absolute;
+				bottom: 20px;
+				right: 20px;
+				@include settingInfoText($GryBlackText)
+			}
+		}
+	}
+}
+
+@mixin InputSetting($Border) {
+	height: 70px;
+	background-color: #f4f3ee;
+	width: 100%;
+	border-radius: $Border;
+	font-size: 18px;
+	color: $GryBlackText;
+	padding: 0 10px;
+}
+
+@mixin LabelSetting {
+	position: absolute;
+	left: 20px;
+	top: 24px;
+	color: $RedColorText;
+	font-size: 18px;
+	transition: all 0.3s ease;
+}
+
+@mixin LabelPlaceholder {
+	input:focus ~ label, input:not(:placeholder-shown) ~ label {
+		left: 70%;
+		font-size: 16px;
+		color: $RedColor_hover;
+	} 
+}
+
+.PasswordUpdate{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: 20px 0 100px 0;
+	&__left{
+		position: relative;
+		width: 50%;
+		&__old{
+			position: relative;
+			width: 100%;
+			&__Input{
+				@include InputSetting(8px 8px 0 0);
+			}
+			&__Label{
+				@include LabelSetting();
+			}
+			@include LabelPlaceholder();
+		}
+		&__New{
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			.instruction_pwd{
+				max-width: 450px;
+				background-color: #512e2e;
+				font-size: 17px;
+				padding: 10px 0;
+				color: $GryColorText;
+				text-align: center;
+				height: max-content;
+				transition: all 0.5s;
+			}
+			.offscreen{
+				transition: all 0.5s;
+				height: 0;
+				max-width: 450px;
+			}
+			&__Input{
+				@include InputSetting(0);
+			}
+			&__Label{
+				@include LabelSetting();
+			}
+			@include LabelPlaceholder();
+		}
+		&__NewReplay{
+			position: relative;
+			width: 100%;
+			&__Input{
+				@include InputSetting(0 0 8px 8px);
+			}
+			&__Label{
+				@include LabelSetting();
+			}
+			@include LabelPlaceholder();
+		}
+		span{
+			position: absolute;
+			right: 0;
+			height: 5px;
+			width: 90%;
+			background-color: $BackgroundColorFonContent_modal;
+			border-radius: 2px 0 0 2px;
+			z-index: 2;
+			transition: all 0.3s ease;
+		}
+		.ValidPass{
+			background-color: rgb(186, 251, 186);
+		}
+		.NotValidPass{
+			background-color: $RedColor_hover;
+		}
+	}
+	&__BTN_Enter{
+		position: relative;
+		background-color: #f4f3ee;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100px;
+		width: 100px;
+		border-radius: 50%;
+		font-size: 35px;
+		border: 7px solid $BackgroundColorFonContent_modal;
+		z-index: 3;
+		color: $RedColor;
+		transition: all 0.3s ease;
+		margin-left: -30px;
+		&:hover{
+			color: $RedColor_hover;
+		}
+	}
+
+}

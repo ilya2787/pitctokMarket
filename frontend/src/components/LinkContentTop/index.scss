@@ -1,0 +1,17 @@
+@import '../../style/config/color';
+
+.LinkContent{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: max-content;
+		column-gap: 10px;
+		&__item{
+			font-size: 20px;
+			color: $RedColorText;
+		}
+		span{
+			color: #D2C6C4;
+		}
+}

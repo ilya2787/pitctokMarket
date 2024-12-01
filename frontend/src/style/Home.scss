@@ -1,0 +1,7 @@
+@import './config/color';
+
+body{
+	background-color: $BodyFon;
+	overflow-x: hidden;
+	font-family: "Vollkorn", serif;
+}

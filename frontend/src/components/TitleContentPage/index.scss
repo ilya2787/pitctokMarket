@@ -1,0 +1,27 @@
+@import '../../style/config/color';
+@mixin settingLine($Width){
+	height: 5px;
+	width: $Width;
+	border-radius: 20px;
+	background-color: #B73737;
+}
+.TitlePageContent{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	column-gap: 30px;
+	padding:50px 0;
+	&__Line1{
+		@include settingLine(15%)
+	}
+	&__Line2{
+		@include settingLine(100%)
+	}
+	h3{
+		font-size: 30px;
+		color: $GryBlackText;
+		min-width: max-content;
+	}
+
+}
