@@ -43,7 +43,7 @@ useEffect(() => {
 									d.idNavMenu === dNav.id ?
 									CheckedAvailable ? 
 										d.quantity > 0 ?
-									<div key={d.id} className='Content_categories_Production'>
+									<div key={i} className='Content_categories_Production'>
 										<div className='Content_categories_Production__status'>
 
 											<HeardProduct id={d.id} ListUserFavorites={ListUserFavorites} setListUserFavorites={setListUserFavorites}/>

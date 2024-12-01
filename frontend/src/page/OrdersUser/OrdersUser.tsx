@@ -34,8 +34,8 @@ useEffect(() => {
 
 								 <div className='BlockOrderUserList__Content'>
 										{ListOrder.length > 0 ?
-											ListOrder.map(d => (
-												<div className='BlockOrderUserList__Content__item'>
+											ListOrder.map((d, i) => (
+												<div key={i} className='BlockOrderUserList__Content__item'>
 													<section className='BlockOrderUserList__Content__item__status'>
 															<span>{Status.Manager}</span>
 															<span

@@ -16,6 +16,7 @@ import { Store } from 'react-notifications-component';
 import MakingAnOrder from './page/MakingAnOrder/MakingAnOrder';
 import OrdersUser from './page/OrdersUser/OrdersUser';
 import Info from './page/Account/Info';
+import EditCatalog from './page/Account/EditCatalog/EditCatalog';
 
 const rout = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const rout = createBrowserRouter([
       {
         path: '/Account/Order',
         element: <OrdersUser/>
+      },
+			{
+        path: '/Account/EditCatalog',
+        element: <EditCatalog/>
       },
 		]
 	},
@@ -106,58 +111,58 @@ const App:FC = () => {
 	const [Auth, setAuth] = useState<boolean>(false);
 	const [ListBasket, setListBasket] = useState<TypeListProductionBasket[]>([])
 
-const [ListMenu, setListMenu] = useState<TypeListMenu[]>([
-	{
-		id:1,
-		Name: 'Главная',
-		Link: "/"
-	},
-	{
-		id:2,
-		Name: 'Реставрация',
-		Link: "#"
-	},
-	{
-		id:3,
-		Name: 'Каталог',
-		Link: "#"
-	},
-	{
-		id:4,
-		Name: 'О компании',
-		Link: "#"
-	},
-	{
-		id:5,
-		Name: 'Доставка',
-		Link: "#"
-	},
-])
-const [CatalogListNav, setCatalogListNav] = useState<TypeListMenu[]>([])
-const [ListSocial, setListSocial] = useState<TypeSocial[]>([
-	{
-		id: 1,
-		Icon: ICON.Vk,
-		title: 'Мы вконтакте',
-		LinkA: '#',
-		LinkP: 'vk.com/pitctok'
-	},
-	{
-		id: 2,
-		Icon: ICON.Telegram,
-		title: 'Мы телеграм',
-		LinkA: '#',
-		LinkP: 't.me/pitctok'
-	},
-	{
-		id: 3,
-		Icon: ICON.Instagram,
-		title: 'Мы инстаграм',
-		LinkA: '#',
-		LinkP: 'pit_ctok39'
-	}
-])
-const [ListUsers, setListUsers] = useState<TypeListUsers[]>([])
+	const [ListMenu, setListMenu] = useState<TypeListMenu[]>([
+		{
+			id:1,
+			Name: 'Главная',
+			Link: "/"
+		},
+		{
+			id:2,
+			Name: 'Реставрация',
+			Link: "#"
+		},
+		{
+			id:3,
+			Name: 'Каталог',
+			Link: "#"
+		},
+		{
+			id:4,
+			Name: 'О компании',
+			Link: "#"
+		},
+		{
+			id:5,
+			Name: 'Доставка',
+			Link: "#"
+		},
+	])
+	const [CatalogListNav, setCatalogListNav] = useState<TypeListMenu[]>([])
+	const [ListSocial, setListSocial] = useState<TypeSocial[]>([
+		{
+			id: 1,
+			Icon: ICON.Vk,
+			title: 'Мы вконтакте',
+			LinkA: '#',
+			LinkP: 'vk.com/pitctok'
+		},
+		{
+			id: 2,
+			Icon: ICON.Telegram,
+			title: 'Мы телеграм',
+			LinkA: '#',
+			LinkP: 't.me/pitctok'
+		},
+		{
+			id: 3,
+			Icon: ICON.Instagram,
+			title: 'Мы инстаграм',
+			LinkA: '#',
+			LinkP: 'pit_ctok39'
+		}
+	])
+	const [ListUsers, setListUsers] = useState<TypeListUsers[]>([])
 
 
 const AddProductBasket = (el:TypeListProduction, quantity_item = 1, idProd?:number) => {

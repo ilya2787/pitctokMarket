@@ -52,6 +52,38 @@
 	}
 }
 
+@mixin settingBlockStatus{
+	font-size: 17px;
+	letter-spacing: 1px;
+	color: #749474;
+	background-color: #fff;
+	padding: 0 30px;
+	clip-path: polygon(0% 0%, 91% 0, 100% 50%, 91% 99%, 0% 100%);
+	min-width: 200px;
+	height: 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+@mixin settingInfoText($colorText) {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	column-gap: 10px;
+	p:nth-child(1){
+		font-size: 18px;
+		color: $GryBlackText;
+		font-weight: bold;
+	}
+	p:nth-child(2){
+		font-family: "Roboto", sans-serif;
+		color: $colorText;
+		font-size: 17px;
+	}
+}
+
 .BlockAccountMain{
 	padding: 0 15px;
 }
@@ -234,40 +266,53 @@
 			}
 		}
 	}
-	
-}
-
-
-@mixin settingBlockStatus{
-	font-size: 17px;
-	letter-spacing: 1px;
-	color: #749474;
-	background-color: #fff;
-	padding: 0 30px;
-	clip-path: polygon(0% 0%, 91% 0, 100% 50%, 91% 99%, 0% 100%);
-	min-width: 200px;
-	height: 32px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-@mixin settingInfoText($colorText) {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: center;
-	column-gap: 10px;
-	p:nth-child(1){
-		font-size: 18px;
-		color: $GryBlackText;
-		font-weight: bold;
-	}
-	p:nth-child(2){
-		font-family: "Roboto", sans-serif;
-		color: $colorText;
-		font-size: 17px;
-	}
+	&__Admin{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+		width: 80%;
+		background-color: #f5efe9;
+		border-radius: 8px;
+		padding: 20px;
+		&__left{
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			row-gap: 10px;
+			h3{
+				font-size: 25px;
+				color: $RedColor_hover;
+				letter-spacing: 4px;
+				font-weight: bold
+			}
+			&__charter{
+				font-weight: bold;
+				font-style: 20px;
+				letter-spacing: 2px;
+				color: $GryBlackText;
+				transition: all 0.3s ease;
+				&:hover{
+					color: $RedColor_hover;
+				}
+			}
+		}
+		&__right{
+			span{
+				@include settingInfoText($RedColor_hover)
+			}
+			&__charterUser{
+				font-style: 19px;
+				color: $RedColor_hover;
+				letter-spacing: 2px;
+				transition: all 0.3s ease;
+				&:hover{
+					color: $RedColor;
+				}
+			}
+		}
+	}	
 }
 
 .BlockOrderUserList{
@@ -294,6 +339,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		row-gap: 30px;
 		width: 100%;
 		&__item{
 			display: flex;
@@ -508,4 +554,36 @@
 		}
 	}
 
+}
+
+.ContentEditCatalog{
+	&_content{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: 50px;
+		&_nav{
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			row-gap: 40px;
+			button{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				background-color: #efe5df;
+				width: 340px;
+				height: 50px;
+				font-size: 18px;
+				color: $GryBlackText;
+				border-radius: 8px;
+			}
+		}
+		&__EditNavMenu{
+			flex-grow: 1;
+		}
+	}
 }

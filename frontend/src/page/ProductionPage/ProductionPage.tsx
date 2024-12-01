@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom';
 import {ICON} from '../../components/ImportIcon/ImportIcon'
 import { ContextCatalog } from '../Catalog/Catalog';
@@ -6,12 +6,15 @@ import './index.scss'
 import { NumberPriceF } from '../../components/PriceFormat/PriceFormat';
 import HeardProduct from '../../components/StatusProduct/HeardProduct';
 import { Context } from '../../App';
+import { TypeListProduction } from '../../components/TypesData/TypesData';
+import axios from 'axios';
 
 const ProductionPage = () => {
 	const DataApp = useContext(Context)
 	const AddProductBasket = DataApp.AddProductBasket
 	const DataCatalog = useContext(ContextCatalog)
 	const ListProduct = DataCatalog.ListProduction
+	const setListProduct = DataCatalog.setListProduction
 	const ListImgProduction = DataCatalog.ListImgProduction
 	const ListUserFavorites = DataCatalog.ListUserFavorites
 	const setListUserFavorites = DataCatalog.setListUserFavorites
@@ -20,12 +23,32 @@ const ProductionPage = () => {
 	const [Img, setImg] = useState<string | undefined>('')
 	const [AvailabilityProduct, setAvailabilityProduct] = useState<boolean>(true)
 	
+useEffect(() => {
+	ListProduct.map(d => {
+		if(d.id === Number(idProduct)){
+			if(d.quantity > 0){
+				setAvailabilityProduct(true)
+			}else{
+				setAvailabilityProduct(false)
+			}
+		}
+	})
+},[setListProduct])
+
+useEffect(() => {
+	axios.get<TypeListProduction[]>('/ListProduction')
+		.then((res)=> {
+			setListProduct(res.data)
+		} )
+		.catch(err => console.log(err))
+},[setListProduct])
+
 	
  return (
 						<> 
 								{ListProduct.map((d,i) => (
 									d.id === Number(idProduct) ?
-									<div key={d.id} className='ItemProduct'>
+									<div key={i} className='ItemProduct'>
 										<div className='ItemProduct_top'>
 											<div className='ItemProduct_top__IMGList'>
 													<img src={`http://localhost:3000/img/Product/${Img !== '' ? Img : d.img}`} alt="" className='ItemProduct_top__IMGList__Main'/>
@@ -58,7 +81,7 @@ const ProductionPage = () => {
 										</div>
 										<div className='ItemProduct_bottom'>
 													<div className='ItemProduct_bottom__availability'>
-															<p>Товар в наличии</p>
+															<p>Наличие товара</p>
 															{AvailabilityProduct 
 															? <span className='ItemProduct_bottom__availability__True'>{ICON.Check}</span>
 															:	<span className='ItemProduct_bottom__availability__False'>{ICON.Closed}</span> 

@@ -95,6 +95,16 @@ const MakingAnOrder:FC = () => {
 				}
 				axios.post('/AddOrder', value)
 				.then(res => {
+					let quantity = 0
+					if(d.quantity - d.quantity_item > 0){
+						quantity = d.quantity - d.quantity_item
+					}else{
+						quantity = 0
+					}
+					const value = {quantity: quantity, id: d.id}
+					axios.post('/UpdateProductionQuantity', value)
+					.then()
+					.catch(err => console.log(err));
 					Store.addNotification({
 						title:'Выполнено',
 						message: 'Заказ успешно отправлен, ожидается звонка менеджера',
@@ -103,9 +113,12 @@ const MakingAnOrder:FC = () => {
 						dismiss: {
 							duration: 3000,
 							onScreen: true
+						},
+						onRemoval: () => {
+							setListBasket([])
 						}
 					})
-					setListBasket([])
+					
 				})
 				.catch(err => console.log(err));
 			})
@@ -160,7 +173,7 @@ const MakingAnOrder:FC = () => {
 
 									<section className='ContentMakingAnOrder__Block__ListBasket'>
 									{ListBasket.map((data, i) => (
-										<div className='ContentMakingAnOrder__Block__ListBasket__content'>
+										<div  key={data.id} className='ContentMakingAnOrder__Block__ListBasket__content'>
 											<img src={`http://localhost:3000/img/Product/${data.img}`} alt="" />
 											<div className='ContentMakingAnOrder__Block__ListBasket__content__info'>
 													<h3 className='ContentMakingAnOrder__Block__ListBasket__content__info__title'>{data.title}</h3>
