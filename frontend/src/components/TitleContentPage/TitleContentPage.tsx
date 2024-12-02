@@ -4,12 +4,12 @@ import './index.scss'
 interface TypeProps{
 	TitlePageNav: string
 	TitlePage: string
-	marginTop?: number
+
 }
 
-const TitleContentPage:FC<TypeProps> = ({TitlePageNav, TitlePage, marginTop}) => {
+const TitleContentPage:FC<TypeProps> = ({TitlePageNav, TitlePage}) => {
  return (
-						<div className='TitlePageContent' style={{marginTop: `${marginTop}px`}}>
+						<div className='TitlePageContent' >
 						<span className='TitlePageContent__Line1'></span>
 							<h3>{TitlePageNav !== '' ? TitlePageNav : TitlePage}</h3>
 							<span className='TitlePageContent__Line2'></span>

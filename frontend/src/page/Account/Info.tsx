@@ -26,7 +26,7 @@ useEffect(() => {
 
  return (
 						<div> 
-							<TitleContentPage TitlePage="Аккаунт" TitlePageNav='' marginTop={-150}/>	
+							<TitleContentPage TitlePage="Аккаунт" TitlePageNav=''/>	
 							{ListUser.length > 0 ?
 									<div className='ContentBlockAccount'>
 									{	LastName === 'Администратор' 

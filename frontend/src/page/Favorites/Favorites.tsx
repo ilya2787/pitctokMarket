@@ -76,7 +76,7 @@ const Favorites = () => {
 								<ReactNotifications/>
 								 <HeaderContentPage />
 								 <Menu ListMenuPage={ListMenu} CatalogListNavPage={CatalogListNav}/>
-										<TitleContentPage TitlePage="Избранные" TitlePageNav='' marginTop={-150}/>						
+										<TitleContentPage TitlePage="Избранные" TitlePageNav=''/>						
 									<div className='ContentProdFavorites'>
 										{ ListUserFavorites.length > 0 ?
 										ListUserFavorites.map((d,i) => (

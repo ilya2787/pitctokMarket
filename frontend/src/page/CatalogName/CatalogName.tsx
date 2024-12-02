@@ -19,12 +19,12 @@ const CatalogName:FC = () => {
 	const CatalogListNav = DataApp.CatalogListNav
 	const AddProductBasket = DataApp.AddProductBasket
 	const DataCatalog = useContext(ContextCatalog)
-const ListProduction = DataCatalog.ListProduction
-const ListUserFavorites = DataCatalog.ListUserFavorites
-const setListUserFavorites = DataCatalog.setListUserFavorites
-const setTitlePageNav = DataCatalog.setTitlePageNav
-const {CatalogName} = useParams<{CatalogName?: string}>();
-const [CheckedAvailable, setCheckedAvailable] = useState<boolean>(false)
+	const ListProduction = DataCatalog.ListProduction
+	const ListUserFavorites = DataCatalog.ListUserFavorites
+	const setListUserFavorites = DataCatalog.setListUserFavorites
+	const setTitlePageNav = DataCatalog.setTitlePageNav
+	const {CatalogName} = useParams<{CatalogName?: string}>();
+	const [CheckedAvailable, setCheckedAvailable] = useState<boolean>(false)
 
 useEffect(() => {
 	axios.post<TypeListUserFavorites[]>('/ListFavoritesProduct', {idUser: IdUser})

@@ -24,13 +24,13 @@ useEffect(() => {
 },[ListOrder])
  return (
 						<div className='BlockOrderUserList'> 
-							<div className='BlockOrderUserList__LinkContentAccount'> 
-								 <Link to={'/'} className='LinkContent__item'>Главная</Link>
+							<div className='LinkContentAccount'> 
+								 <Link to={'/'} className='LinkContentAccount__item'>Главная</Link>
 										<span>{ICON.ArrowRight}</span>
-										<Link to={'/Account/info'} className='LinkContent__item' onClick={() => {
+										<Link to={'/Account/info'} className='LinkContentAccount__item' onClick={() => {
 											}}>Аккаунт</Link>
 							</div>
-								 <TitleContentPage TitlePage="Заказы" TitlePageNav='' marginTop={-150}/>	
+								 <TitleContentPage TitlePage="Заказы" TitlePageNav='' />	
 
 								 <div className='BlockOrderUserList__Content'>
 										{ListOrder.length > 0 ?

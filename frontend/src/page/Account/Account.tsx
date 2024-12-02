@@ -6,7 +6,7 @@ import Footer from '../../components/Footer/Footer'
 import './Account.scss'
 import { Context } from '../../App'
 import { ReactNotifications} from 'react-notifications-component'
-import { TypeListUsers, TypeValueDataOrder } from '../../components/TypesData/TypesData'
+import { TypeListMenu, TypeListUsers, TypeValueDataOrder } from '../../components/TypesData/TypesData'
 import { Outlet } from 'react-router-dom'
 
 
@@ -15,17 +15,20 @@ type TypeContext = {
 	ListUser: TypeListUsers[]
 	setListUser: Dispatch<SetStateAction<TypeListUsers[]>>
 	ListOrder: TypeValueDataOrder[]
+	setCatalogListNav: Dispatch<SetStateAction<TypeListMenu[]>>
 }
 export const ContextAccount = createContext<TypeContext>({
 	ListUser: [],
 	setListUser: () => {},
-	ListOrder: []
+	ListOrder: [],
+	setCatalogListNav: () => {}
 })
 
 const Account:FC = () => {
 	const DataAll = useContext(Context)
 	const ListMenu = DataAll.ListMenu
 	const CatalogListNav = DataAll.CatalogListNav
+	const setCatalogListNav = DataAll.setCatalogListNav
 	const ListSocial = DataAll.ListSocial
 	const setAuth = DataAll.setAuth
 	const idUser = DataAll.idUsers
@@ -78,7 +81,8 @@ useEffect(() => {
 							{
 							ListUser: ListUser,
 							setListUser: setListUser,
-							ListOrder: ListOrder
+							ListOrder: ListOrder,
+							setCatalogListNav: setCatalogListNav
 						}
 						}>
 							<ReactNotifications />

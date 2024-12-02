@@ -129,7 +129,7 @@ const MakingAnOrder:FC = () => {
 						<ReactNotifications/>
 						<HeaderContentPage />
 						<Menu ListMenuPage={ListMenu} CatalogListNavPage={CatalogListNav}/>
-						<TitleContentPage TitlePage="Оформление заказа" TitlePageNav='' marginTop={-150}/>	
+						<TitleContentPage TitlePage="Оформление заказа" TitlePageNav=''/>	
 						{ListBasket.length > 0 
 						?
 							<div className='ContentMakingAnOrder'>

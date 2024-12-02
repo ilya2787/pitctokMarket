@@ -75,6 +75,7 @@ const rout = createBrowserRouter([
 type TypeContext = {
   ListMenu: Array<TypeListMenu>
   CatalogListNav: Array<TypeListMenu>
+	setCatalogListNav: Dispatch<SetStateAction<TypeListMenu[]>>
   ListSocial: Array<TypeSocial>
 	idUsers: number
 	setIdUser: Dispatch<SetStateAction<number>>
@@ -91,6 +92,7 @@ type TypeContext = {
 export const Context = createContext<TypeContext>({
   ListMenu: [],
   CatalogListNav: [],
+	setCatalogListNav: () => {},
   ListSocial: [],
 	idUsers: 0,
 	setIdUser: () => {},
@@ -242,6 +244,7 @@ useEffect(() => {
 			{
 				ListMenu: ListMenu,
 				CatalogListNav: CatalogListNav,
+				setCatalogListNav: setCatalogListNav,
 				ListSocial: ListSocial,
 				idUsers: idUser,
 				setIdUser: setIdUser,
