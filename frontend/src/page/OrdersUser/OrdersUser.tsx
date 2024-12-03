@@ -48,7 +48,7 @@ useEffect(() => {
 													</section>
 													<section className='BlockOrderUserList__Content__item__content'>
 															<div className='BlockOrderUserList__Content__item__content__info'>
-																<img src={`.././img/Product/${d.img}`} alt="" />
+																<img src={`${process.env.PUBLIC_URL}/img/Product/${d.img}`} alt="" />
 																<div className='BlockOrderUserList__Content__item__content__info__text'>
 																		<h3>{d.title}</h3>
 																		<span className='BlockOrderUserList__Content__item__content__info__text__article'><p>Артикул: </p><p>{d.article}</p></span>

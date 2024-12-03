@@ -11,6 +11,7 @@ import { Context } from '../../App'
 import { TypeListUserFavorites } from '../../components/TypesData/TypesData'
 import axios from 'axios'
 import { Store } from 'react-notifications-component'
+import { LinkServer } from '../Link'
 
 
 const CatalogName:FC = () => {
@@ -40,6 +41,32 @@ useEffect(() => {
 						{ListProduction.map((d,i) => (
 							CatalogListNav.map((dNav, i) => (
 								CatalogName === dNav.Link || CatalogName === 'All'?
+									CatalogName === 'NovyePostupleniya' ?
+										d.newStatus === 1 ?
+											<div key={i} className='Content_categories_Production'>
+											<div className='Content_categories_Production__status'>
+
+												<HeardProduct id={d.id} ListUserFavorites={ListUserFavorites} setListUserFavorites={setListUserFavorites}/>
+												<NewProduct newStatus={d.newStatus}/>
+											</div>
+											<Link 
+											to={`/Catalog/${CatalogName}/${d.id}`} 
+											onClick={() => setTitlePageNav(d.title)}>
+											<img src={`${LinkServer.Server}Product/${d.img}`} alt="" />
+											</Link>
+											<Link 
+											to={`/Catalog/${CatalogName}/${d.id}`} 
+											onClick={() => setTitlePageNav(d.title)}className='Content_categories_Production__title'>{d.title}</Link>
+											<span className='Content_categories_Production__article'><p>Артикул:</p><p>{d.article}</p></span>
+											<div className='Content_categories_Production__price'>
+													<span>
+														<h3>{NumberPriceF(d.price)}</h3>
+													</span>
+													<button className='Content_categories_Production__price_BTNBasket'>{ICON.BasketProduct}</button>
+											</div>
+										</div>		
+										:null
+									:
 									d.idNavMenu === dNav.id ?
 									CheckedAvailable ? 
 										d.quantity > 0 ?
@@ -52,7 +79,7 @@ useEffect(() => {
 										<Link 
 										to={`/Catalog/${CatalogName}/${d.id}`} 
 										onClick={() => setTitlePageNav(d.title)}>
-										<img src={`.././img/Product/${d.img}`} alt="" />
+										<img src={`${LinkServer.Server}Product/${d.img}`} alt="" />
 										</Link>
 										<Link 
 										to={`/Catalog/${CatalogName}/${d.id}`} 
@@ -75,7 +102,7 @@ useEffect(() => {
 										<Link 
 										to={`/Catalog/${CatalogName}/${d.id}`} 
 										onClick={() => setTitlePageNav(d.title)}>
-										<img src={`.././img/Product/${d.img}`} alt="" />
+										<img src={`${LinkServer.Server}Product/${d.img}`} alt="" />
 										</Link>
 										<Link 
 										to={`/Catalog/${CatalogName}/${d.id}`} 

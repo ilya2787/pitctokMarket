@@ -16,12 +16,14 @@ type TypeContext = {
 	setListUser: Dispatch<SetStateAction<TypeListUsers[]>>
 	ListOrder: TypeValueDataOrder[]
 	setCatalogListNav: Dispatch<SetStateAction<TypeListMenu[]>>
+	CatalogListNav: TypeListMenu[]
 }
 export const ContextAccount = createContext<TypeContext>({
 	ListUser: [],
 	setListUser: () => {},
 	ListOrder: [],
-	setCatalogListNav: () => {}
+	setCatalogListNav: () => {},
+	CatalogListNav: []
 })
 
 const Account:FC = () => {
@@ -82,7 +84,8 @@ useEffect(() => {
 							ListUser: ListUser,
 							setListUser: setListUser,
 							ListOrder: ListOrder,
-							setCatalogListNav: setCatalogListNav
+							setCatalogListNav: setCatalogListNav,
+							CatalogListNav: CatalogListNav
 						}
 						}>
 							<ReactNotifications />

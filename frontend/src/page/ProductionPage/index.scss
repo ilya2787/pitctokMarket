@@ -45,10 +45,9 @@
 			justify-content: flex-start;
 			align-items: flex-start;
 			column-gap: 20px;
-			height: 500px;
-			width: 500px;
+			max-width: 400px;
 			&__Main{
-				width: 75%;
+				width: 77%;
 				border-radius: 8px;
 			}
 			&__children{

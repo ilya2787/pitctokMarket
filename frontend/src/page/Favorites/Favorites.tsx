@@ -90,7 +90,7 @@ const Favorites = () => {
 											<Link 
 											to={`/Catalog/All/${d.idProd}`} 
 											onClick={() => setTitlePageNav(d.title)}>
-											<img src={`./img/Product/${d.img}`} alt="" />
+											<img src={`${process.env.PUBLIC_URL}/img/Product/${d.img}`} alt="" />
 											</Link>
 											<Link 
 											to={`/Catalog/All/${d.idProd}`} 

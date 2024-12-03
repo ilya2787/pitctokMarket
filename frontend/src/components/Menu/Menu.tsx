@@ -6,6 +6,7 @@ import { ContextCatalog } from '../../page/Catalog/Catalog'
 import { TypeListProduction } from '../TypesData/TypesData'
 import axios from 'axios'
 import { NumberPriceF } from '../PriceFormat/PriceFormat'
+import { LinkServer } from '../../page/Link'
 
 interface TypeProps {
   ListMenuPage: TypeListMenu[],
@@ -121,7 +122,7 @@ useEffect(() => {
 															<Link to={`/Catalog/All/${d.id}`}
 															onClick={() => setTextSearch('')}
 															>
-															<img src={`http://localhost:3000/img/Product/${d.img}`} alt="" />
+															<img src={`${LinkServer.Server}Product/${d.img}`} alt="" />
 															</Link>
 															<Link className='BlockSearch__item__link' to={`/Catalog/All/${d.id}`}
 															onClick={() => setTextSearch('')}

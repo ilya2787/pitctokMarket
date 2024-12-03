@@ -8,6 +8,7 @@ import HeardProduct from '../../components/StatusProduct/HeardProduct';
 import { Context } from '../../App';
 import { TypeListProduction } from '../../components/TypesData/TypesData';
 import axios from 'axios';
+import { LinkServer } from '../Link';
 
 const ProductionPage = () => {
 	const DataApp = useContext(Context)
@@ -51,12 +52,15 @@ useEffect(() => {
 									<div key={i} className='ItemProduct'>
 										<div className='ItemProduct_top'>
 											<div className='ItemProduct_top__IMGList'>
-													<img src={`http://localhost:3000/img/Product/${Img !== '' ? Img : d.img}`} alt="" className='ItemProduct_top__IMGList__Main'/>
+													<img src={`${LinkServer.Server}Product/${Img !== '' ? Img : d.img}`} alt="" className='ItemProduct_top__IMGList__Main'/>
 													<div className='ItemProduct_top__IMGList__children'>
+													<button onClick={() => setImg(d.img)} >
+														<img src={`${LinkServer.Server}Product/${d.img}`} alt="" />
+													</button>
 													{ListImgProduction.map((dIM, i) => (
 														dIM.idProduction === d.id ?
 														<button key={dIM.id} onClick={() => setImg(dIM.Link)} >
-														<img src={`http://localhost:3000/img/Product/${dIM.Link}`} alt="" />
+														<img src={`${LinkServer.Server}Product/${dIM.Link}`} alt="" />
 													</button>
 													:null
 													))}

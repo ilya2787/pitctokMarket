@@ -13,6 +13,7 @@ import { TypeListUsers, TypeValueDataOrder } from '../../components/TypesData/Ty
 import axios from 'axios'
 import ModalWindow from '../../components/ModalWindow/ModalWindow'
 import { Status } from '../../components/StatusOrder/StatusOrder'
+import { LinkServer } from '../Link'
 
 
 const MakingAnOrder:FC = () => {
@@ -174,7 +175,7 @@ const MakingAnOrder:FC = () => {
 									<section className='ContentMakingAnOrder__Block__ListBasket'>
 									{ListBasket.map((data, i) => (
 										<div  key={data.id} className='ContentMakingAnOrder__Block__ListBasket__content'>
-											<img src={`http://localhost:3000/img/Product/${data.img}`} alt="" />
+											<img src={`${LinkServer.Server}/Product/${data.img}`} alt="" />
 											<div className='ContentMakingAnOrder__Block__ListBasket__content__info'>
 													<h3 className='ContentMakingAnOrder__Block__ListBasket__content__info__title'>{data.title}</h3>
 												<span className='ContentMakingAnOrder__Block__ListBasket__content__info__article'><p>Артикул: </p><p>{data.article}</p></span>

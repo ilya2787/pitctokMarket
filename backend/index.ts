@@ -1,6 +1,7 @@
 require('dotenv').config();
 const Mysql = require('mysql2');
 const express = require('express');
+const fileUpload = require('express-fileupload')
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
@@ -15,6 +16,9 @@ app.use(cors({
 	}));
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.static('public'))
+app.use(fileUpload());
+
 const PORT = process.env.PORT || 3000;
 
 const DB = Mysql.createConnection({
@@ -143,13 +147,37 @@ app.post('/UsersUpdateEmail', (req, res) => {
 	})
 })
 
-
-
 app.get('/ListProduction', (req:string, res:any) => {
 	const sql = 'SELECT * from Production';
 	DB.query(sql, (err, data) => {
 		if(err) return res.json(err)
 			return res.json(data)
+	})
+})
+
+app.post('/AddProduct', (req,res) => {
+	const sql = 'INSERT INTO Production (title, article, materials, quantity, img, description, price, newStatus, idNavMenu) VALUE (?)';
+	const value = [req.body.title, req.body.article, req.body.materials, req.body.quantity, req.body.img, req.body.description, req.body.price, req.body.newStatus, req.body.idNavMenu]
+	DB.query(sql, [value], (err, data) => {
+		if(err) return res.json(err)
+			return res.json({Status: "TRUE"})
+	})
+})
+
+app.post('/AutoIncrProduction', (req, res) => {
+	const sql = "ALTER TABLE Production AUTO_INCREMENT = ?";
+	DB.query(sql, [req.body.value], (err, data) => {
+		if(err) return res.json(err)
+			return res.json(data)
+	})
+})
+
+app.post('/UpdateProduction', (req, res:any) => {
+	const sql = 'UPDATE Production SET title = ?, article = ?, materials = ?, quantity = ?,  description = ?, price = ?, newStatus = ?, idNavMenu = ? WHERE id = ? ';
+	const value = [req.body.title, req.body.article, req.body.materials, req.body.quantity, req.body.description, req.body.price, req.body.newStatus, req.body.idNavMenu, req.body.id]
+	DB.query(sql, value ,(err, data) => {
+		if(err) return res.json(err)
+			return res.json({Status: "TRUE"})
 	})
 })
 
@@ -161,6 +189,13 @@ app.post('/UpdateProductionQuantity', (req, res:any) => {
 			return res.json({Status: 'TRUE'})
 	})
 })
+app.post('/UpdateImgMain', (req, res) => {
+	const sql = 'UPDATE Production SET img = ?  WHERE  id = ?';
+	DB.query(sql, [req.body.img, req.body.id], (err, data) => {
+		if(err) return res.json(err)
+			return res.json({Status: "TRUE"})
+	})
+})
 
 app.get('/ListImgGallery', (req:string, res:any) => {
 	const sql = 'SELECT * from galleryProduct';
@@ -170,11 +205,55 @@ app.get('/ListImgGallery', (req:string, res:any) => {
 	})
 })
 
+app.post('/AddImgGallery', (req, res:any) => {
+	const sql = 'INSERT INTO galleryProduct (Link, idProduction) VALUE (?)';
+	const value = [req.body.Link, req.body.idProduction]
+	DB.query(sql, [value] ,(err, data) => {
+		if(err) return res.json(err)
+			return res.json(data)
+	})
+})
+
+
+app.post('/UpdateImgGallery', (req, res) => {
+	const sql = 'UPDATE galleryProduct SET Link = ?  WHERE  id = ?';
+	DB.query(sql, [req.body.Link, req.body.id], (err, data) => {
+		if(err) return res.json(err)
+			return res.json({Status: "TRUE"})
+	})
+})
+
 app.get('/ListNavMenu', (req:string, res:any) => {
 	const sql = 'SELECT * FROM ListNavigationMenu';
 	DB.query(sql, (err, data) => {
 		if(err) return res.json(err)
 			return res.json(data)
+	})
+})
+
+app.post('/UpdateListNavMenu', (req, res:any) => {
+	const sql = 'UPDATE ListNavigationMenu SET Name = ?, Link = ? WHERE id = ?';
+	const value = [req.body.Name, req.body.Link, req.body.id]
+	DB.query(sql, value, (err, data) => {
+		if(err) return res.json(err)
+			return res.json({Status: 'TRUE'})
+	})
+})
+
+app.post('/AddListNavMenu', (req, res) => {
+	const sql = 'INSERT INTO ListNavigationMenu (Name, Link) VALUE (?)';
+	const value = [req.body.Name, req.body.Link]
+	DB.query(sql, [value], (err, data) => {
+		if(err) return res.json(err)
+			return res.json({Status: 'TRUE'})
+	})
+})
+
+app.post('/DeleteNavMenu', (req, res) => {
+	const sql = 'DELETE FROM ListNavigationMenu WHERE id= ?';
+	DB.query(sql, [req.body.id], (err, data) => {
+		if(err) return res.json(err)
+			return res.json({STATUS: 'TRUE'})
 	})
 })
 
@@ -246,7 +325,6 @@ app.get('/SelectOrderAll', (req, res) => {
 		})
 })
 
-
 app.post('/DeleteProdBasket', (req, res) => {
 		const sql = 'DELETE FROM Basket WHERE id = ? and idUser = ?';
 		DB.query(sql, [req.body.id, req.body.idUser], (err, data) => {
@@ -254,6 +332,23 @@ app.post('/DeleteProdBasket', (req, res) => {
 				return res.json({STATUS: 'TRUE'})
 		})
 	})
+
+app.post('/UploadFile', (req, res) => {
+	if(!req.files){
+		return res.json({Status: "file is not found"})
+	}
+	const MyFile = req.files.file;
+
+	MyFile.mv(`${__dirname}/public/Product/${MyFile.name}`,
+		function (err){
+			if(err){
+				console.log(err)
+				return res.json({Status: "Error occurred"});
+			}
+			return res.send({name: MyFile.name, path: `Product/${MyFile.name}`})
+		}
+	)
+})
 
 
 //Выход

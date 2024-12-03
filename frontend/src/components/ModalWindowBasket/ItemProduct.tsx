@@ -6,6 +6,7 @@ import { ICON } from '../ImportIcon/ImportIcon'
 import { Context } from '../../App'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { LinkServer } from '../../page/Link'
 
 interface TypeProps{
 	data: TypeListProductionBasket
@@ -48,7 +49,7 @@ const ItemProduct:FC<TypeProps> = ({data, ListBasket,setListBasket, onClickDelet
  return (
 					<div className='ContentBasket__prod__item' key={data.id}>
 						<Link to={`/Catalog/All/${data.id}`}>
-							<img src={`http://localhost:3000/img/Product/${data.img}`} alt="" />
+							<img src={`${LinkServer.Server}/Product/${data.img}`} alt="" />
 						</Link>
 						<div className='ContentBasket__prod__item__info'>
 							<Link to={`/Catalog/All/${data.id}`}>

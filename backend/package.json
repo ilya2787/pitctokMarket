@@ -28,6 +28,8 @@
     "typescript": "^5.7.2"
   },
   "dependencies": {
+    "@types/express-fileupload": "^1.5.1",
+    "express-fileupload": "^1.5.1",
     "node": "^18.17.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.2"

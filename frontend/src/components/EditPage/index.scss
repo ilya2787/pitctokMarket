@@ -128,3 +128,651 @@
 		}
 	}
 }
+
+
+@mixin settingSpan($FD) {
+	display: flex;
+	flex-direction: $FD;
+	column-gap: 10px;
+	p:nth-child(1){
+		font-size: 18px;
+		font-weight: bold;
+		color: $GryBlackText;
+	}
+	p:nth-child(2){
+		font-size: 18px;
+		color: $GryBlackText;
+	}
+}
+
+@mixin settingInput{
+	font-size: 18px;
+	color: $GryBlackText;
+	border-bottom: 2px solid #9c8a8a;
+	width: max-content;
+}
+
+@mixin settingRadio {
+	input[type=radio]{
+		display: none;
+	}
+	label{
+		display: block; 
+		width: 100%;
+		font-size: 16px;
+		color: $GryBlackText;
+		padding: 7px 30px;
+		box-shadow:  -1px -1px 3px 1px #e9e0ce, 1px 1px 3px 1px #484644;
+		border-radius: 8px;
+		border: 2px solid transparent;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+	input[type=radio]:checked + label {
+		box-shadow: none;
+		border: 2px solid #e9e4da;
+		color: #BD7373;
+		font-weight: 500;
+	}
+}
+
+@mixin settingAddImg {
+	position: relative;
+	input[type=file]{
+		display: none;
+	}
+	label{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		border-radius: 8px;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		color: #ffffff;
+		font-size: 18px;
+		letter-spacing: 2px;
+		background-color: rgba(90, 73, 70, 0.67);
+		transition: all 0.3s ease;
+		&:hover{
+			background-color: rgba(67, 52, 49, 0.872);
+		}
+	}
+}
+
+@mixin settingAddImgSmall {
+	position: relative;
+	input[type=file]{
+		display: none;
+	}
+	label{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0px;
+		color: #ffffff;
+		font-size: 18px;
+		letter-spacing: 2px;
+		background-color: rgba(90, 73, 70, 0.67);
+		transition: all 0.3s ease;
+		z-index: 2;
+		border-radius: 5px;
+		&:hover{
+			background-color: rgba(67, 52, 49, 0.872);
+		}
+	}
+}
+
+@mixin settingBtnExit($FS, $PT){
+	position: absolute;
+	z-index: 2;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: #ecd3be;
+	padding: $PT 0;
+	font-size: $FS;
+	letter-spacing: 2px;
+	color: $GryBlackText;
+	border-radius: 0 0 8px 8px;
+}
+
+@mixin InputSettingAddForm {
+	height: 40px;
+	background-color: #f4f3ee;
+	width: 100%;
+	border-radius: 5px;
+	font-size: 18px;
+	color: $GryBlackText;
+	padding: 0 10px;
+}
+
+@mixin LabelSettingAddForm {
+	position: absolute;
+	left: 20px;
+	top: 10px;
+	color: $RedColorText;
+	font-size: 18px;
+	transition: all 0.3s ease;
+}
+
+@mixin LabelPlaceholderAddForms {
+	input:focus ~ label, input:not(:placeholder-shown) ~ label {
+		top: -20px;
+		font-size: 16px;
+		color: $RedColor_hover;
+	} 
+}
+
+@mixin settingRadioForm{
+	input[type=radio]{
+		display: none;
+	}
+	label{
+		display: block; 
+		width: 100%;
+		font-size: 16px;
+		color: $GryBlackText;
+		padding: 7px 30px;
+		box-shadow:  -1px -1px 3px 1px #fdf8ec, 1px 1px 3px 1px #d3d0d0;
+		border-radius: 8px;
+		border: 2px solid transparent;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+	input[type=radio]:checked + label {
+		box-shadow: none;
+		border: 2px solid #e9e4da;
+		color: #BD7373;
+		font-weight: 500;
+	}
+}
+.ContentEditProduct{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	&__ListNavMenu{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		column-gap: 10px;
+		row-gap: 10px;
+		width: 100%;
+		button{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 200px;
+			height: 50px;
+			background-color: #e2d1c4;
+			border-radius: 8px;
+			color: $GryBlackText;
+			transition: all 0.3s ease;
+			&:hover{
+				background-color: #ebe1d9;
+			}
+			&.Active {
+				background-color: $RedColor;
+				color: #fff;
+			}
+		}
+	}
+	&__ListProductEdit{
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		row-gap: 40px;
+		width: 100%;
+		margin-top: 50px;
+		&__BTNAdd{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 200px;
+			height: 40px;
+			background-color: #b7c5a0;
+			border-radius: 8px;
+			color: $GryBlackText;
+			font-size: 18px;
+			transition: all 0.3s ease;
+			&:hover{
+				background-color: #c9d6b3;
+			}
+		}
+			&__item{
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: flex-start;
+				background-color: #f1e8e4;
+				padding: 10px;
+				column-gap: 20px;
+				position: relative;
+				width: 100%;
+				&__img{
+					display: flex;
+					flex-direction: row;
+					justify-content: flex-start;
+					align-items: flex-start;
+					column-gap: 10px;
+					width: 300px;
+					height: 300px;
+					
+					&__Input{
+						@include settingAddImg();
+						button{
+							position: absolute;
+							z-index: 3;
+							bottom: 0;
+							left: 0;
+							right: 0;
+							background-color: #fff;
+							padding: 5px 0;
+							font-size: 18px;
+							color: $GryBlackText;
+							letter-spacing: 2px;
+							transition: all 0.3s ease;
+							&:hover{
+								background-color: #e2e2e2;
+							}
+						}
+					}
+					&__MainImg{
+						min-width: 230px;
+						max-width: 230px;
+						position: relative;
+						border-radius: 8px;
+						img{
+							width: 100%;
+							border-radius: 8px;
+						}
+						button{
+							position: absolute;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							width: 40px;
+							height: 40px;
+							top: 10px;
+							left: 10px;
+							background-color: #ebe0d5;
+							border-radius: 8px;
+							transition: all 0.3s ease;
+							&:hover{
+								background-color: #d1c7bd;
+							}
+						}
+					}
+					&__DopImg{
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+						align-items: flex-start;
+						row-gap: 10px;
+						width: 300px;
+						height: 100%;
+						position: relative;
+						&__Input{
+							@include settingAddImgSmall();
+							&__Edit{
+								position: absolute;
+								top: 0;
+								left: 0;
+								right: 0;
+								bottom: 0;
+								background-color: rgba(90, 73, 70, 0.443);
+								transition: all 0.3s ease;
+								color: #fff;
+								border-radius: 5px;
+								&:hover{
+									background-color: rgba(67, 52, 49, 0.872);
+								}
+							}
+							&__exit{
+								position: absolute;
+								bottom: 0;
+								left: 0;
+								right: 0;
+								background-color: #fff;
+								padding: 2px;
+								z-index: 3;
+							}
+						}
+						img{
+							width: 100%;
+							border-radius: 5px;
+						}
+
+					}
+				}
+				&__inform{
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: flex-start;
+					row-gap: 10px;
+					width: 100%;
+					&__title{
+						font-size: 19px;
+						color: $RedColor_hover;
+						input[type=text]{
+							@include settingInput();
+						}
+					}
+					&__article{
+						@include settingSpan(row);
+						input[type=text]{
+							@include settingInput();
+						}
+					}
+					&__quantity{
+						@include settingSpan(row);
+						input[type=number]{
+							@include settingInput();
+						}
+					}
+					&__materials{
+						@include settingSpan(row);
+						input[type=text]{
+							@include settingInput();
+						}
+					}
+					&__price{
+						@include settingSpan(row);
+						input[type=number]{
+							@include settingInput();
+						}
+					}
+					&__description{
+						@include settingSpan(column);
+						width: 100%;
+						textarea{
+							resize: none;
+							width: 100%;
+							height: 150px;
+							font-size: 18px;
+							color: $GryBlackText;
+							&:focus{
+								outline: none;
+								border: 1px solid #9c8a8a;
+								padding: 5px;
+								border-radius: 8px
+							}
+						
+						}
+					}
+					&__newStatus{
+						@include settingSpan(row);
+						&__Active{
+							@include settingRadio();
+						}
+						&__DeActive{
+							@include settingRadio();
+						}
+					}
+				}
+				&__BTN{
+					position: absolute;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					top: 10px;
+					right: 10px;
+					width: 40px;
+					height: 40px;
+					background-color: #c5c0ba;
+					border-radius: 8px;
+					color: $GryBlackText;
+					transition: all 0.3s ease;
+					&:hover{
+						background-color: #d6d0ca;
+					}
+				}
+				&__BTN__Save{
+					position: absolute;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					top: 10px;
+					right: 10px;
+					width: 40px;
+					height: 40px;
+					background-color: #f3c6ae;
+					border-radius: 8px;
+					color: $GryBlackText;
+					transition: all 0.3s ease;
+					&:hover{
+						background-color: #d9b29d;
+					}
+				}
+			}
+	}
+	&__AddProductionForm{
+		&__Form{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: flex-start;
+			padding: 50px 0;
+			margin-top: -30px;
+			column-gap: 40px;
+			&__img{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				column-gap: 10px;
+				row-gap: 10px;
+				width: 350px;
+				&__Main{
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 100%;
+					border-radius: 8px;
+					@include settingAddImg();
+					img{
+						width: 100%;
+						border-radius: 8px;
+					}
+					&__exit{
+						@include settingBtnExit(18px, 5px)
+					}
+				}
+				&__Dop{
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					align-items: center;
+					column-gap: 10px;
+					width: 100%;
+					&__item{
+						@include settingAddImgSmall();
+						width: 100%;
+						min-height: 100px;
+						img{
+							width: 100%;
+							border-radius: 5px;
+							min-height: 100px;
+						}
+						&__exit{
+							@include settingBtnExit(16px, 3px)
+						}
+					}
+					&__item2{
+						@include settingAddImgSmall();
+						width: 100%;
+						min-height: 100px;
+						img{
+							width: 100%;
+							border-radius: 5px;
+							min-height: 100px;
+						}
+						&__exit{
+							@include settingBtnExit(16px, 3px)
+						}
+					}
+					&__item3{
+						@include settingAddImgSmall();
+						width: 100%;
+						min-height: 100px;
+						img{
+							width: 100%;
+							border-radius: 5px;
+							min-height: 100px;
+						}
+						&__exit{
+							@include settingBtnExit(16px, 3px)
+						}
+					}
+				}
+			}
+			&__inform{
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: flex-start;
+				row-gap: 30px;
+				flex-grow: 1;
+				&__title{
+					position: relative;
+					@include LabelPlaceholderAddForms();
+					width: 100%;
+					&__input{
+						@include InputSettingAddForm();
+					}
+					&__label{
+						@include LabelSettingAddForm();
+					}
+				}
+				&__Block1{
+					display: flex;
+					flex-direction: row;
+					column-gap: 40px;
+					width: 100%;
+					&__article{
+						position: relative;
+						@include LabelPlaceholderAddForms();
+						width: 100%;
+						&__input{
+							@include InputSettingAddForm();
+						}
+						&__label{
+							@include LabelSettingAddForm();
+						}
+					}
+					&__materials{
+						position: relative;
+						@include LabelPlaceholderAddForms();
+						width: 100%;
+						&__input{
+							@include InputSettingAddForm();
+						}
+						&__label{
+							@include LabelSettingAddForm();
+						}
+					}
+	
+				}
+				&__Block2{
+					display: flex;
+					flex-direction: row;
+					column-gap: 40px;
+					width: 100%;
+					&__quantity{
+						position: relative;
+						@include LabelPlaceholderAddForms();
+						width: 100%;
+						&__input{
+							@include InputSettingAddForm();
+						}
+						&__label{
+							@include LabelSettingAddForm();
+						}
+					}
+					&__price{
+						position: relative;
+						@include LabelPlaceholderAddForms();
+						width: 100%;
+						&__input{
+							@include InputSettingAddForm();
+						}
+						&__label{
+							@include LabelSettingAddForm();
+						}
+					}
+				}
+				&__description{
+					width: 100%;
+					p{
+						color: $RedColor;
+						font-size: 18px;
+						padding-left: 20px;
+					}
+					&__textarea{
+						resize: none;
+						min-width: 100%;
+						min-height: 200px;
+						font-size: 18px;
+						color: $GryBlackText;
+						background-color: #f4f3ee;
+						border-radius: 8px;
+						&:focus{
+							outline: none;
+							border: 1px solid #9c8a8a;
+							padding: 5px;
+							border-radius: 8px
+						}
+					}
+				}
+				&__NewStatus{
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					align-items: center;
+					column-gap: 20px;
+					p{
+						font-size: 18px;
+						color: $RedColor;
+					}
+					&__BlockRadio{
+						display: flex;
+						flex-direction: column;
+						row-gap: 20px;
+						&__Active{
+							@include settingRadioForm();
+						}
+						&__DeActive{
+							@include settingRadioForm();
+						}
+					}
+				}
+			}
+			.BTNAddProduct{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 200px;
+				height: 70px;
+				background-color: #d8dac4;
+				border-radius: 8px;
+				font-size: 30px;
+				color: $GryBlackText;
+				transition: all 0.3s ease;
+				&:hover{
+					background-color: #ebecdd;
+				}
+			}
+		}
+	}
+}

@@ -3,6 +3,7 @@ import TitleContentPage from '../../../components/TitleContentPage/TitleContentP
 import { Link } from 'react-router-dom'
 import { ICON } from '../../../components/ImportIcon/ImportIcon'
 import EditListNavMenu from '../../../components/EditPage/EditListNavMenu'
+import EditProduction from '../../../components/EditPage/EditProduction'
 
 const EditCatalog = () => {
 	const [EditNavMenu, setEditNavMenu] = useState<boolean>(false)
@@ -37,6 +38,13 @@ const EditCatalog = () => {
 												<section className='ContentEditCatalog_content__EditNavMenu'>
 													<EditListNavMenu/>
 												</section>
+										:null}
+										{EditProduct ?
+											<section
+											className='ContentEditCatalog_content__EditProduct'
+											>
+												<EditProduction/>
+											</section>
 										:null}
 								 </div>
 
