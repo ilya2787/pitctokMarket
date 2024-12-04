@@ -78,5 +78,13 @@ export interface TypeValueDataOrder{
 	PaymentStatus: number,
 	idUser: number
 	totalAmount?: number,
-	DateOrder: string
+	DateOrder: string,
+	Cancel? : number
+}
+
+export interface TypeNews {
+	id: number,
+	title: string,
+	date: string,
+	description: string,
 }

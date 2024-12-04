@@ -1,5 +1,5 @@
 import React, { FC, useContext, useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useLocation } from 'react-router-dom'
 import './index.scss'
 import {ICON} from '../../components/ImportIcon/ImportIcon'
 import { ContextCatalog } from '../Catalog/Catalog'
@@ -26,6 +26,7 @@ const CatalogName:FC = () => {
 	const setTitlePageNav = DataCatalog.setTitlePageNav
 	const {CatalogName} = useParams<{CatalogName?: string}>();
 	const [CheckedAvailable, setCheckedAvailable] = useState<boolean>(false)
+
 
 useEffect(() => {
 	axios.post<TypeListUserFavorites[]>('/ListFavoritesProduct', {idUser: IdUser})

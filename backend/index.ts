@@ -285,7 +285,7 @@ app.post('/ListInsertFavoritesProd', (req, res) => {
 
 
 app.post('/AddOrder', (req, res) => {
-	const sql = 'INSERT INTO OrderUsers (img, title, article, quantity, price, Delivery, Pickup, Address, idPostal, Status, PaymentStatus, idUser, DateOrder) VALUE (?)';
+	const sql = 'INSERT INTO OrderUsers (img, title, article, quantity, price, Delivery, Pickup, Address, idPostal, Status, PaymentStatus, idUser, DateOrder, Cancel) VALUE (?)';
 	const value = [req.body.img, req.body.title, req.body.article, req.body.quantity, req.body.price, req.body.Delivery, req.body.Pickup, req.body.Address, req.body.idPostal, req.body.Status, req.body.PaymentStatus, req.body.idUser, req.body.DateOrder]
 	DB.query(sql, [value], (err, data) => {
 		if(err) return res.json(err)
@@ -350,6 +350,48 @@ app.post('/UploadFile', (req, res) => {
 	)
 })
 
+
+app.get('/SelectNews' , (req, res) => {
+	const sql = 'SELECT * FROM NewsInform ORDER BY date DESC ';
+	DB.query(sql, (err, data) => {
+		if(err) return res.json(err)
+			return res.json(data)
+	})
+})
+
+app.get('/SelectNewsLimit' , (req, res) => {
+	const sql = 'SELECT * FROM NewsInform ORDER BY date DESC LIMIT 3';
+	DB.query(sql, (err, data) => {
+		if(err) return res.json(err)
+			return res.json(data)
+	})
+})
+
+app.post('/UpdateNews', (req, res) => {
+	const sql = 'UPDATE NewsInform SET title = ?, description = ?, date = ? WHERE id = ?';
+	DB.query(sql, [req.body.title, req.body.description, req.body.date, req.body.id], (err, data) => {
+		if(err) return res.json(err)
+			return res.json({Status : 'TRUE'})
+	})
+})
+
+app.post('/DeleteNews', (req, res) => {
+	const sql = 'DELETE FROM NewsInform WHERE id = ?';
+	DB.query(sql, [req.body.id], (err, data) => {
+		if(err) return res.json(err)
+			return res.json({STATUS: 'TRUE'})
+	})
+})
+
+app.post('/AddNews', (req, res) => {
+	const sql = 'INSERT INTO NewsInform (title, description, date) VALUE (?)';
+	const value = [req.body.title, req.body.description, req.body.date];
+	DB.query(sql, [value], (err, data) => {
+		if(err) return res.json(err)
+			return res.json({Status: "TRUE"})
+	})
+
+})
 
 //Выход
 app.get('/logout', (req, res) => {

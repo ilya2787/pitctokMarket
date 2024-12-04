@@ -502,11 +502,11 @@
 							height: 150px;
 							font-size: 18px;
 							color: $GryBlackText;
+							padding: 5px;
+							border-radius: 8px;
 							&:focus{
 								outline: none;
 								border: 1px solid #9c8a8a;
-								padding: 5px;
-								border-radius: 8px
 							}
 						
 						}

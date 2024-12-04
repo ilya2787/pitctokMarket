@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { ContextAccount } from '../../page/Account/Account'
 import { Context } from '../../App'
 import { Link } from 'react-router-dom'
+import { TypeValueDataOrder } from '../TypesData/TypesData'
+import axios from 'axios'
 
 const BlockInfoAccountAdmin = () => {
 const DataAccount = useContext(ContextAccount)
@@ -22,22 +24,36 @@ useEffect(() => {
 	})
 },[ListUser])
 
+const [ListUserOrder, setListUserOrder] = useState<TypeValueDataOrder[]>([])
+	useEffect(() => {
+		axios.get<TypeValueDataOrder[]>('/SelectOrderAll')
+		.then(res => {
+				setListUserOrder(res.data)
+		})
+		.catch(err => console.log(err));
+	},[setListUserOrder])
 
+	const [QuantityOrder, setQuantityOrder] = useState<number>(0)
+	useEffect(() => {
+		let quantity = 0
+		ListUserOrder.map(d => {
+			if(d.PaymentStatus === 0 && d.Cancel !== 1){
+				quantity = quantity + 1
+			}
+		})
+		setQuantityOrder(quantity)
+	},[ListUserOrder])
 
  return (
 						<div className='ContentBlockAccount__Admin'> 
 								 <section className='ContentBlockAccount__Admin__left'>
 											<h3>{LastName}</h3>
-											<Link to={''} className='ContentBlockAccount__Admin__left__charter'>
+											<Link to={'/Account/EditNews'} className='ContentBlockAccount__Admin__left__charter'>
 											Редактировать раздел информации 
 											</Link>
 											<Link to={'/Account/EditCatalog'}
 											className='ContentBlockAccount__Admin__left__charter'>
 											Редактировать каталог
-											</Link>
-											<Link to={''}
-											className='ContentBlockAccount__Admin__left__charter'>
-											Редактировать контактные данные
 											</Link>
 								 </section>
 								 <section className='ContentBlockAccount__Admin__right'>
@@ -45,11 +61,17 @@ useEffect(() => {
 												<p>Количество пользователей</p>
 												<p>{QuantityUsersAll}</p>
 											</span>
-											<Link to={''}
+											<Link to={'/Account/AllListUser'}
 											className='ContentBlockAccount__Admin__right__charterUser'>
 												Показать всех
 											</Link>
 								 </section> 
+								 <div className='ContentBlockAccount__Admin__BtnActiveOrder'>
+									<Link className='ContentBlockAccount__Admin__BtnActiveOrder__Btn' to={'/Account/ActiveOrder'}>
+										Активные заказы
+									</Link>
+									<span>{QuantityOrder}</span>
+								 </div>
 						</div>
 )
 }

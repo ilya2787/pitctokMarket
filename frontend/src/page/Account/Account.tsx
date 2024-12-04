@@ -7,7 +7,7 @@ import './Account.scss'
 import { Context } from '../../App'
 import { ReactNotifications} from 'react-notifications-component'
 import { TypeListMenu, TypeListUsers, TypeValueDataOrder } from '../../components/TypesData/TypesData'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 
 
 
@@ -35,6 +35,16 @@ const Account:FC = () => {
 	const setAuth = DataAll.setAuth
 	const idUser = DataAll.idUsers
 	const setIdUser = DataAll.setIdUser
+
+	const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: 'smooth'
+		});
+  }, [pathname]);
 
 	const [ListUser, setListUser] = useState<TypeListUsers[]>([])
 

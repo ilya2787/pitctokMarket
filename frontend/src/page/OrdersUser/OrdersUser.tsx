@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import TitleContentPage from '../../components/TitleContentPage/TitleContentPage'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { ICON } from '../../components/ImportIcon/ImportIcon'
 import { Status } from '../../components/StatusOrder/StatusOrder'
 import { ContextAccount } from '../Account/Account'
@@ -10,7 +10,15 @@ const OrdersUser = () => {
 	const DataAccount = useContext(ContextAccount)
 	const ListOrder = DataAccount.ListOrder 
 
+	const { pathname } = useLocation();
 
+  useEffect(() => {
+    window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: 'smooth'
+		});
+  }, [pathname]);
 	//Выгрузка даты регистрации
 const [DateOrder, setDateOrder] = useState<string>('')
 useEffect(() => {

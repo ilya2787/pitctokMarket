@@ -8,7 +8,7 @@ import TitleContentPage from '../../components/TitleContentPage/TitleContentPage
 import Footer from '../../components/Footer/Footer'
 import InputMask from 'react-input-mask'
 import { NumberPriceF } from '../../components/PriceFormat/PriceFormat'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import { TypeListUsers, TypeValueDataOrder } from '../../components/TypesData/TypesData'
 import axios from 'axios'
 import ModalWindow from '../../components/ModalWindow/ModalWindow'
@@ -41,6 +41,15 @@ const MakingAnOrder:FC = () => {
 
 	const [ListUser, setListUser] = useState<TypeListUsers[]>([])
 
+	const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: 'smooth'
+		});
+  }, [pathname]);
 
 	useEffect(() => {
 		const ListUserF = async () => {

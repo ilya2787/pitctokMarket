@@ -1,6 +1,6 @@
 import React, { createContext, FC, useState, useRef, useEffect, Dispatch, SetStateAction } from 'react';
 import './style/App.scss';
-import { createBrowserRouter, RouterProvider, useNavigate } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, useLocation} from 'react-router-dom';
 import Home from './page/Home';
 import Error404 from './page/Error404';
 import Catalog from './page/Catalog/Catalog';
@@ -17,6 +17,11 @@ import MakingAnOrder from './page/MakingAnOrder/MakingAnOrder';
 import OrdersUser from './page/OrdersUser/OrdersUser';
 import Info from './page/Account/Info';
 import EditCatalog from './page/Account/EditCatalog/EditCatalog';
+import EditNews from './page/Account/EditNews';
+import AllNewsPage from './components/BlockNewsMain/AllNewsPage';
+import ListAllUserAdmin from './page/Account/ListAllUserAdmin';
+import ListOrderUserAll from './page/Account/ListOrderUserAll';
+import ActiveOrder from './page/Account/ActiveOrder';
 
 const rout = createBrowserRouter([
   {
@@ -56,6 +61,22 @@ const rout = createBrowserRouter([
         path: '/Account/EditCatalog',
         element: <EditCatalog/>
       },
+			{
+        path: '/Account/EditNews',
+        element: <EditNews/>
+      },
+			{
+        path: '/Account/AllListUser',
+        element: <ListAllUserAdmin/>
+      },
+			{
+        path: '/Account/AllListUser/ListOrderUser/:idU',
+        element: <ListOrderUserAll />
+      },
+			{
+        path: '/Account/ActiveOrder',
+        element: <ActiveOrder/>
+      },
 		]
 	},
 	{
@@ -67,7 +88,12 @@ const rout = createBrowserRouter([
 		path: '/MakingAnOrder/:idUser',
 		element: <MakingAnOrder />,
 		errorElement: <Error404/>
-	}
+	},
+	{
+		path: '/Home/AllNews',
+		element: <AllNewsPage/>,
+		errorElement: <Error404/>
+	},
 
 ])
 
@@ -108,6 +134,8 @@ export const Context = createContext<TypeContext>({
 })
 
 const App:FC = () => {
+
+	
 	const [LastName, setLastName] = useState<string>('')
 	const [idUser, setIdUser] = useState<number>(0)
 	const [Auth, setAuth] = useState<boolean>(false);

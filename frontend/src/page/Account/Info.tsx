@@ -5,6 +5,7 @@ import { ContextAccount } from './Account'
 import { Context } from '../../App'
 import BlockInfoAccountUser from '../../components/BlockInfoAccountUser/BlockInfoAccountUser'
 import BlockInfoAccountAdmin from '../../components/BlockInfoAccountAdmin/BlockInfoAccountAdmin'
+import { useLocation } from 'react-router-dom'
 
 
 const Info:FC = () => {
@@ -14,6 +15,15 @@ const Info:FC = () => {
 	const ListUser = DataAccount.ListUser
 	const [LastName, setLastName] = useState<string>('')
 
+	const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: 'smooth'
+		});
+  }, [pathname]);
 
 useEffect(() => {
 	ListUser.map(d => {

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import {ICON} from '../../components/ImportIcon/ImportIcon'
 import { ContextCatalog } from '../Catalog/Catalog';
 import './index.scss'
@@ -23,7 +23,17 @@ const ProductionPage = () => {
 	const {CatalogName} = useParams<{CatalogName?: string}>();
 	const [Img, setImg] = useState<string | undefined>('')
 	const [AvailabilityProduct, setAvailabilityProduct] = useState<boolean>(true)
-	
+
+	const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: 'smooth'
+		});
+  }, [pathname]);
+
 useEffect(() => {
 	ListProduct.map(d => {
 		if(d.id === Number(idProduct)){

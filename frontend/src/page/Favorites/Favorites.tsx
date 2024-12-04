@@ -5,7 +5,7 @@ import Menu from '../../components/Menu/Menu'
 import { Context } from '../../App'
 import HeardProduct from '../../components/StatusProduct/HeardProduct'
 import NewProduct from '../../components/StatusProduct/NewProduct'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { ContextCatalog } from '../Catalog/Catalog'
 import { NumberPriceF } from '../../components/PriceFormat/PriceFormat'
 import { ICON } from '../../components/ImportIcon/ImportIcon'
@@ -30,6 +30,16 @@ const Favorites = () => {
 	
 	const [ListUserFavorites, setListUserFavorites] = useState<TypeListUserFavorites[]>([])
 	const [IdUser, setIdUser] = useState<number>(0)
+
+	const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: 'smooth'
+		});
+  }, [pathname]);
 
 	axios.defaults.withCredentials = true;
 	useEffect(() => {
