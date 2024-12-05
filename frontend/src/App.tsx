@@ -22,6 +22,9 @@ import AllNewsPage from './components/BlockNewsMain/AllNewsPage';
 import ListAllUserAdmin from './page/Account/ListAllUserAdmin';
 import ListOrderUserAll from './page/Account/ListOrderUserAll';
 import ActiveOrder from './page/Account/ActiveOrder';
+import Restoration from './page/Restoration/Restoration';
+import Delivery from './page/Delivery/Delivery';
+import About from './page/About/About';
 
 const rout = createBrowserRouter([
   {
@@ -94,6 +97,21 @@ const rout = createBrowserRouter([
 		element: <AllNewsPage/>,
 		errorElement: <Error404/>
 	},
+	{
+		path: '/Restoration',
+		element: <Restoration/>,
+		errorElement: <Error404/>
+	},
+	{
+		path: '/Delivery',
+		element: <Delivery/>,
+		errorElement: <Error404/>
+	},
+	{
+		path: '/About',
+		element: <About/>,
+		errorElement: <Error404/>
+	},
 
 ])
 
@@ -150,22 +168,22 @@ const App:FC = () => {
 		{
 			id:2,
 			Name: 'Реставрация',
-			Link: "#"
+			Link: "/Restoration"
 		},
 		{
 			id:3,
 			Name: 'Каталог',
-			Link: "#"
+			Link: "/Catalog/All"
 		},
 		{
 			id:4,
 			Name: 'О компании',
-			Link: "#"
+			Link: "/About"
 		},
 		{
 			id:5,
 			Name: 'Доставка',
-			Link: "#"
+			Link: "/Delivery"
 		},
 	])
 	const [CatalogListNav, setCatalogListNav] = useState<TypeListMenu[]>([])

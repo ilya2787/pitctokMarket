@@ -294,18 +294,26 @@ app.post('/AddOrder', (req, res) => {
 })
 
 app.post('/UpdateStatusOrder', (req, res) => {
-	const sql = 'UPDATE OrderUsers SET Status = ?, totalAmount = ? WHERE idUser = ? and id = ?';
-	DB.query(sql, [req.body.Status, req.body.totalAmount, req.body.idUser, req.body.id], (err, data) => {
+	const sql = 'UPDATE OrderUsers SET Status = ?, totalAmount = ? WHERE id = ?';
+	DB.query(sql, [req.body.Status, req.body.totalAmount,  req.body.id], (err, data) => {
 		if(err) return res.json(err)
-			return res.json(data)
+			return res.json({Status: 'TRUE'})
 	})
 })
 
 app.post('/UpdatePaymentStatusOrder', (req, res) => {
-	const sql = 'UPDATE Order SET PaymentStatus = ? WHERE idUser = ? and id = ?';
-	DB.query(sql, [req.body.PaymentStatus, req.body.idUser, req.body.id], (err, data) => {
+	const sql = 'UPDATE OrderUsers SET Status = ?, PaymentStatus = ? WHERE id = ?';
+	DB.query(sql, [req.body.Status, req.body.PaymentStatus, req.body.id], (err, data) => {
 		if(err) return res.json(err)
-			return res.json(data)
+			return res.json({Status: 'TRUE'})
+	})
+})
+
+app.post('/CancelOrder', (req, res) => {
+	const sql = 'UPDATE OrderUsers SET Cancel = ? WHERE id = ?';
+	DB.query(sql, [req.body.Cancel, req.body.id], (err, data) => {
+		if(err) return res.json(err)
+			return res.json({Status: 'TRUE'})
 	})
 })
 

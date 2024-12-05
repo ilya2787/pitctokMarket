@@ -2,7 +2,6 @@ import React, { FC, useRef, useState, useEffect, useContext, ChangeEventHandler 
 import './index.scss'
 import { ICON } from '../ImportIcon/ImportIcon'
 import { Link } from 'react-router-dom'
-import { ContextCatalog } from '../../page/Catalog/Catalog'
 import { TypeListProduction } from '../TypesData/TypesData'
 import axios from 'axios'
 import { NumberPriceF } from '../PriceFormat/PriceFormat'

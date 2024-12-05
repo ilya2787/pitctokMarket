@@ -22,11 +22,12 @@ const MakingAnOrder:FC = () => {
 	const CatalogListNav = DataContentAll.CatalogListNav
 	const ListSocial = DataContentAll.ListSocial
 	const ListBasket = DataContentAll.ListBasket
+	const idUser = DataContentAll.idUsers
 	const setListBasket = DataContentAll.setListBasket
 
 	const [OpenModal, setOpenModal] = useState<boolean>(false)
 
-	const {idUser} = useParams<{idUser?: string}>();
+	// const {idUser} = useParams<{idUser?: string}>();
 	
 	const [Pickup, setPickup] = useState<boolean>(false)
 	const [Delivery, setDelivery] = useState<boolean>(false)
@@ -140,82 +141,86 @@ const MakingAnOrder:FC = () => {
 						<HeaderContentPage />
 						<Menu ListMenuPage={ListMenu} CatalogListNavPage={CatalogListNav}/>
 						<TitleContentPage TitlePage="Оформление заказа" TitlePageNav=''/>	
-						{ListBasket.length > 0 
-						?
-							<div className='ContentMakingAnOrder'>
-								<div className='ContentMakingAnOrder__Block'>
-									<section className='ContentMakingAnOrder__Block__shippingMethod'>
-											<h3>Выберите способ доставки</h3>
-											<div className='ContentMakingAnOrder__Block__shippingMethod__pickup'>
-													<input type="radio" name="shippingMethod" id="Pickup" onClick={() => {
-														setPickup(true)
-														setDelivery(false)}}/>
-													<label htmlFor="Pickup">Самовывоз</label>
-											</div>
-											<div className='ContentMakingAnOrder__Block__shippingMethod__Delivery'>
-													<input type="radio" name="shippingMethod" id="Delivery" onClick={() => {
-														setPickup(false)
-														setDelivery(true)}}/>
-													<label htmlFor="Delivery">Доставка</label>
-											</div>
-									</section>
-
-									<section className='ContentMakingAnOrder__Block__inform'>
-											{Delivery	?
-												<div className='ContentMakingAnOrder__Block__inform__Delivery'>
-													<div className='ContentMakingAnOrder__Block__inform__Delivery__address'>
-															<input type="text" name="" id="Address" onChange={(event) => setAddress(event.target.value)}className='ContentMakingAnOrder__Block__inform__Delivery__address__inputAddress' placeholder=''/>
-															<label htmlFor="Address">Адрес доставки</label>
-													</div>
-													<div className='ContentMakingAnOrder__Block__inform__Delivery__idPostal'>
-															<InputMask className='ContentMakingAnOrder__Block__inform__Delivery__idPostal__inputIdPostal' mask={'999999'} maskChar={' '} name="idPostal" id="idPostal" placeholder=''
-															onChange={(event) => setIdPostal(event.target.value)}
-															/>
-															<label htmlFor="idPostal">Почтовый индекс</label>
-													</div>
+						{idUser !== 0 ?
+						ListBasket.length > 0 
+							?
+								<div className='ContentMakingAnOrder'>
+									<div className='ContentMakingAnOrder__Block'>
+										<section className='ContentMakingAnOrder__Block__shippingMethod'>
+												<h3>Выберите способ доставки</h3>
+												<div className='ContentMakingAnOrder__Block__shippingMethod__pickup'>
+														<input type="radio" name="shippingMethod" id="Pickup" onClick={() => {
+															setPickup(true)
+															setDelivery(false)}}/>
+														<label htmlFor="Pickup">Самовывоз</label>
 												</div>
-											:null}
-										<p className='ContentMakingAnOrder__Block__inform__text'>
-										После отправки заявки, с вами свяжется менеджер для согласования условии доставки, так же у него вы можете уточнить дополнительные данные по выбранной продукции или любой друг 
-										</p>
-
-									</section>
-
-									<section className='ContentMakingAnOrder__Block__ListBasket'>
-									{ListBasket.map((data, i) => (
-										<div  key={data.id} className='ContentMakingAnOrder__Block__ListBasket__content'>
-											<img src={`${LinkServer.Server}/Product/${data.img}`} alt="" />
-											<div className='ContentMakingAnOrder__Block__ListBasket__content__info'>
-													<h3 className='ContentMakingAnOrder__Block__ListBasket__content__info__title'>{data.title}</h3>
-												<span className='ContentMakingAnOrder__Block__ListBasket__content__info__article'><p>Артикул: </p><p>{data.article}</p></span>
-												<span className='ContentMakingAnOrder__Block__ListBasket__content__info__price'><p>Цена: </p><p>{NumberPriceF(data.price)}</p></span>
-												<div className='ContentMakingAnOrder__Block__ListBasket__content__info__quantity'>
-															<p>Количество: </p>
-															<p>{data.quantity_item}</p>
+												<div className='ContentMakingAnOrder__Block__shippingMethod__Delivery'>
+														<input type="radio" name="shippingMethod" id="Delivery" onClick={() => {
+															setPickup(false)
+															setDelivery(true)}}/>
+														<label htmlFor="Delivery">Доставка</label>
 												</div>
-												<span className='ContentMakingAnOrder__Block__ListBasket__content__info__summa'>
-														<p>Сумма: </p><p>{NumberPriceF(data.price * data.quantity_item)}</p>
-												</span>
-										</div>
-										</div>
-										
-									))}
-									</section>
-
-									<section className='ContentMakingAnOrder__Block__FullPriceAndBTN'>
-										<span className='ContentMakingAnOrder__Block__FullPriceAndBTN__fullPrice'>
-											<h3>Общая сумма:</h3>
-											<p>{NumberPriceF(functionFullPrice)}</p>
-										</span>
-												<button 
-												onClick={() => setOpenModal(true)}
-												className='ContentMakingAnOrder__Block__FullPriceAndBTN__Send'>Отправить</button>
-									</section>
-
+										</section>
+	
+										<section className='ContentMakingAnOrder__Block__inform'>
+												{Delivery	?
+													<div className='ContentMakingAnOrder__Block__inform__Delivery'>
+														<div className='ContentMakingAnOrder__Block__inform__Delivery__address'>
+																<input type="text" name="" id="Address" onChange={(event) => setAddress(event.target.value)}className='ContentMakingAnOrder__Block__inform__Delivery__address__inputAddress' placeholder=''/>
+																<label htmlFor="Address">Адрес доставки</label>
+														</div>
+														<div className='ContentMakingAnOrder__Block__inform__Delivery__idPostal'>
+																<InputMask className='ContentMakingAnOrder__Block__inform__Delivery__idPostal__inputIdPostal' mask={'999999'} maskChar={' '} name="idPostal" id="idPostal" placeholder=''
+																onChange={(event) => setIdPostal(event.target.value)}
+																/>
+																<label htmlFor="idPostal">Почтовый индекс</label>
+														</div>
+													</div>
+												:null}
+											<p className='ContentMakingAnOrder__Block__inform__text'>
+											После отправки заявки, с вами свяжется менеджер для согласования условии доставки, так же у него вы можете уточнить дополнительные данные по выбранной продукции или любой друг 
+											</p>
+	
+										</section>
+	
+										<section className='ContentMakingAnOrder__Block__ListBasket'>
+										{ListBasket.map((data, i) => (
+											<div  key={data.id} className='ContentMakingAnOrder__Block__ListBasket__content'>
+												<img src={`${LinkServer.Server}/Product/${data.img}`} alt="" />
+												<div className='ContentMakingAnOrder__Block__ListBasket__content__info'>
+														<h3 className='ContentMakingAnOrder__Block__ListBasket__content__info__title'>{data.title}</h3>
+													<span className='ContentMakingAnOrder__Block__ListBasket__content__info__article'><p>Артикул: </p><p>{data.article}</p></span>
+													<span className='ContentMakingAnOrder__Block__ListBasket__content__info__price'><p>Цена: </p><p>{NumberPriceF(data.price)}</p></span>
+													<div className='ContentMakingAnOrder__Block__ListBasket__content__info__quantity'>
+																<p>Количество: </p>
+																<p>{data.quantity_item}</p>
+													</div>
+													<span className='ContentMakingAnOrder__Block__ListBasket__content__info__summa'>
+															<p>Сумма: </p><p>{NumberPriceF(data.price * data.quantity_item)}</p>
+													</span>
+											</div>
+											</div>
+											
+										))}
+										</section>
+	
+										<section className='ContentMakingAnOrder__Block__FullPriceAndBTN'>
+											<span className='ContentMakingAnOrder__Block__FullPriceAndBTN__fullPrice'>
+												<h3>Общая сумма:</h3>
+												<p>{NumberPriceF(functionFullPrice)}</p>
+											</span>
+													<button 
+													onClick={() => setOpenModal(true)}
+													className='ContentMakingAnOrder__Block__FullPriceAndBTN__Send'>Отправить</button>
+										</section>
+	
+									</div>
 								</div>
-							</div>
-						: <h2 className='NotData'>Нет данных для оформления</h2>
+							: <h2 className='NotData'>Нет данных для оформления</h2>
+							
+						: <h2 className='NotData'>Для оформления заказа необходимо авторизоваться</h2>
 						}
+						
 								<Footer ListMenuPage={ListMenu} ListSocialPage={ListSocial}/>
 
 								<ModalWindow

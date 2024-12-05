@@ -30,7 +30,7 @@ const ActiveOrder = () => {
 								 <div className='PageActiveOrderUsers__content'>
 											{ListUserOrder.map((data, i) => (
 												data.PaymentStatus !== 1 && data.Cancel !== 1 ?						
-												<ItemActiveOrder key={i} data={data} />
+												<ItemActiveOrder key={i} data={data} setListUserOrder={setListUserOrder}/>
 												:null
 											))}
 								 </div>

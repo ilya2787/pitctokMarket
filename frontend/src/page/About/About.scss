@@ -1,0 +1,328 @@
+@import '../../style/config/color';
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Vast+Shadow&display=swap');
+
+@mixin settingCircleSmall($top, $right, $bottom, $left, $BC, $width, $height){
+	position: absolute;
+	top: $top;
+	left: $left;
+	right: $right;
+	bottom: $bottom;
+	background-color: $BC;
+	width: $width;
+	height: $height;
+	border-radius: 50%;
+}
+$img-dir-path: '/img/';
+
+.PageAbout{
+	&__Content{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		&__Block{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			row-gap: 40px;
+			align-items: center;
+			width: 80%;
+			background-color: #f5efe9;
+			padding: 50px 0;
+			border-radius: 8px;
+			&__title{
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: center;
+				column-gap: 20px;
+				width: 100%;
+				margin-left: 50px;
+				img{
+					filter: opacity(70%);
+				}
+				h3{
+					color: $RedColor;
+					font-size: 25px;
+					letter-spacing: 2px;
+				}
+			}
+			&__h3{
+				width: 100%;
+				text-align: center;
+				color: $GryBlackText;
+				font-size: 24px;
+				letter-spacing: 2px;
+			}
+			&__p{
+				width: 100%;
+				text-align: center;
+				color: $GryBlackText;
+				font-size: 22px;
+				letter-spacing: 2px;
+				padding: 40px 20px;
+			}
+			&__MapsInfo{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				row-gap: 40px;
+				&__Kaliningrad{
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					align-items: flex-start;
+					column-gap: 50px;
+					&__maps{
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						background-color: #fff;
+						border-radius: 8px;
+						padding: 10px;
+						width: max-content;
+					}
+					&__text{
+						h3{
+							color:$RedColor;
+							font-size: 22px;
+							letter-spacing: 1px;
+						}
+						span{
+							display: flex;
+							flex-direction: row;
+							column-gap: 20px;
+							font-size: 20px;
+							color: $GryBlackText;
+							p:last-child{
+								color: $RedColor_hover;
+							}
+						}
+
+					}
+				}
+				&__textSPB{
+					width: 100%;
+					text-align: center;
+					font-size: 22px;
+					color: $GryBlackText;
+				}
+				&__SPB{
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background-color: #fff;
+					border-radius: 8px;
+					padding: 10px;
+					width: max-content;
+				}
+			}
+			&__10years{
+				position: relative;
+				width: 100%;
+				height: 400px;
+				background-color: #fff;
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: center;
+				padding: 0 0 0 20px;
+				p{
+					margin-right: -150px;
+					font-size: 23px;
+					width: 850px;
+					color: $GryBlackText;
+					text-align: center;
+				}
+				&__Icon{
+					width: 70%;
+					height: 100%;
+					flex-grow: 1;
+					&__Fon{
+						display: flex;
+						justify-content: flex-end;
+						width: 100%;
+						height: 100%;
+						background-color: #B73737;
+						clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+						&__content{
+							width: 95%;
+							height: 100%;
+							background-color: #2E0F0F;
+							clip-path: polygon(0 0, 100% 0, 100% 100%, 53% 100%);
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							align-items: center;
+							&__CircleBlock{
+								margin-right: -300px;
+								position: relative;
+								width: 220px;
+								height: 220px;
+								&__circle1{
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									width: 100%;
+									height: 100%;
+									border: 3px solid #FF5D5D;
+									border-radius: 50%;
+									position: relative;
+									transform: rotate(0);
+									animation: circleLeft 10s linear  infinite;
+									&__small{
+										@include settingCircleSmall(0px, auto, auto, 30px, White, 30px, 30px);
+									}
+									&__small2{
+										@include settingCircleSmall(auto, auto, -10px, 70px, White, 25px, 25px);
+									}
+									&__small3{
+										@include settingCircleSmall(80px, -15px, auto, auto, White, 20px, 20px);
+									}
+									&__circle2{
+										width: 180px;
+										height: 180px;
+										border: 3px solid #FF5D5D;
+										border-radius: 50%;
+										position: relative;
+										transform: rotate(0);
+										animation: circleRight 5s linear  infinite;
+										&__small{
+											@include settingCircleSmall(0px, auto, auto, 30px, black, 30px, 30px);
+										}
+										&__small2{
+											@include settingCircleSmall(auto, auto, -10px, 70px, black, 25px, 25px);
+										}
+										&__small3{
+											@include settingCircleSmall(80px, -15px, auto, auto, black, 20px, 20px);
+										}
+									}
+								}
+								&__Text10{
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									position: absolute;
+									top: 0;
+									left: 0;
+									right: 0;
+									bottom: 0;
+									background-repeat: no-repeat;
+									background-position: 50% 50%;
+									background-size: 70% 70%;
+									z-index: -1;
+									h3{
+										font-size: 90px;
+										font-family: "Vast Shadow", serif;
+										color: #fff;
+									}
+								}
+								h1{
+									width: 100%;
+									text-align: center;
+									font-family: "Pattaya", sans-serif;
+									font-size: 50px;
+									color: #fff;
+								}
+							}
+						}
+					}
+				}
+				
+			}
+			&__TitleMarket{
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				column-gap: 20px;
+				width: 100%;
+				span{
+					background-color: $RedColor;
+					width: 100%;
+					height: 3px;
+				}
+				h3{
+					color: $RedColor;
+					font-size: 24px;
+					letter-spacing: 2px;
+					min-width: max-content;
+				}
+			}
+			&__Video{
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: stretch;
+				row-gap: 5px;
+				flex-wrap: wrap;
+				&__item{
+					flex: 0 0 33%;
+					position: relative;
+					border-radius: 8px;
+					video{
+						width: 100%;
+						border-radius: 8px;
+					}
+					&__text{
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						text-align: center;
+						padding: 10px;
+						color: #fff;
+						font-size: 24px;
+						letter-spacing: 2px;
+						background-color: #180c0caf;
+						border-radius: 8px;
+						transition: all 0.5s ease;
+						&:hover{
+							opacity: 0;
+						}
+					}
+				}
+			}
+			&__Phone{
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				align-items: center;
+				span{
+					color: $GryBlackText;
+					font-size: 23px;
+					p:first-child{
+						margin-left: -23px;
+						color: $RedColor;
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes circleLeft {
+0%{
+	transform: rotate(0);
+}
+
+100%{
+	transform: rotate(-360deg);
+}
+}
+
+@keyframes circleRight {
+	0%{
+		transform: rotate(0);
+	}
+	
+	100%{
+		transform: rotate(360deg);
+	}
+	}

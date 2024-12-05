@@ -1,0 +1,106 @@
+@import '../../style/config/color';
+
+.PageDelivery{
+	&__Content{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		&__Block{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			row-gap: 40px;
+			width: 80%;
+			background-color: #f5efe9;
+			padding: 50px 20px;
+			border-radius: 8px;
+			&__title{
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: center;
+				column-gap: 20px;
+				width: 100%;
+				img{
+					filter: opacity(70%);
+				}
+				h3{
+					color: $RedColor;
+					font-size: 23px;
+					letter-spacing: 2px;
+				}
+			}
+			p{
+				color: $GryBlackText;
+				font-size: 22px;
+				text-align: justify;
+			}
+			&__Pickup{
+				width: 100%;
+				margin-left: 100px;
+				h3{
+					font-size: 23px;
+					color: $RedColor;
+					letter-spacing: 1px;
+					margin-left: -50px;
+				}
+				&__Address{
+					margin:10px 0 0 50px;
+					display: flex;
+					flex-direction: row;
+					justify-content: flex-start;
+					align-items: center;
+					column-gap: 20px;
+					span{
+						width: 20px;
+						height: 20px;
+						border-radius: 50%;
+						background-color: $RedColor;
+					}
+				}
+				&__Maps{
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin: 30px 0 30px 100px;
+					background-color: #fff;
+					border-radius: 8px;
+					padding: 10px;
+					width: max-content;
+				}
+			}
+			&__Delivery{
+				width: 100%;
+				margin-left: 100px;
+				h3{
+					font-size: 23px;
+					color: $RedColor;
+					letter-spacing: 1px;
+					margin-left: -50px;
+				}
+				&__text{
+					max-width: 950px;
+				}
+			}
+			&__Phone{
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				align-items: center;
+				span{
+					font-size: 23px;
+					p:first-child{
+						margin-left: -23px;
+						color: $RedColor;
+					}
+				}
+			}
+			&__CatalogLick{
+				color: $RedColor;
+			}
+		}
+	}
+}

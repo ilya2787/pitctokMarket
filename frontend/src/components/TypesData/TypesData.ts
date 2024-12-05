@@ -65,6 +65,7 @@ export interface TypeListUserFavorites {
 }
 
 export interface TypeValueDataOrder{
+	id?: number,
 	img: string,
 	title: string,
 	article: string,

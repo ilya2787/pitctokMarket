@@ -6,6 +6,8 @@ import { ContextCatalog } from '../../page/Catalog/Catalog';
 
 interface TypeProps {
 	setCheckedAvailable: Dispatch<SetStateAction<boolean>>
+	setTitleSorting: Dispatch<SetStateAction<string>>
+	TitleSorting: string
 }
 
 interface TypeSorting{
@@ -13,7 +15,7 @@ interface TypeSorting{
 	Name: string
 }
 
-const FilterProduction:FC<TypeProps> = ({setCheckedAvailable}) => {
+const FilterProduction:FC<TypeProps> = ({setCheckedAvailable, setTitleSorting, TitleSorting}) => {
 	const DataCatalog = useContext(ContextCatalog)
 	const ListProduction = DataCatalog.ListProduction
 
@@ -29,13 +31,10 @@ const FilterProduction:FC<TypeProps> = ({setCheckedAvailable}) => {
 		{
 			id: 3,
 			Name: 'Новинки'
-		},
-		{
-			id: 4,
-			Name: 'Скидки'
-		},
+		}
 	])
-	const [TitleSorting, setTitleSorting] = useState<string>('С начало дорогие')
+
+	
 	const [ListOpenSorting, setListOpenSorting] = useState<boolean>(false)
 	const BlockSorting = useRef<HTMLDivElement>(null)
 	const IconSorting = useRef<HTMLSpanElement>(null)

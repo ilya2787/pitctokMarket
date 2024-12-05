@@ -45,14 +45,21 @@ useEffect(() => {
 											ListOrder.map((d, i) => (
 												<div key={i} className='BlockOrderUserList__Content__item'>
 													<section className='BlockOrderUserList__Content__item__status'>
+														{d.Cancel !== 1 ?
+														<>
 															<span>{Status.Manager}</span>
 															<span
-															style={d.Status === Status.Agreed ? {} : {backgroundColor: '#505050', color: '#ce5555'}}
+															style={d.Status === Status.Agreed || d.Status === Status.PaidFor? {} : {backgroundColor: '#505050', color: '#ce5555'}}
 															>
 																{Status.Agreed}</span>
 															<span 
-															style={d.Status === Status.PaidFor ? {} : {backgroundColor: '#2c2c2c', color: '#ce5555'}}
+															style={d.PaymentStatus === 1 ? {} : {backgroundColor: '#2c2c2c', color: '#ce5555'}}
 															>{Status.PaidFor}</span>
+														</>
+														:
+															<h3 className='BlockOrderUserList__Content__item__status__Cancel'>Заказа отменен</h3>
+														}
+															
 													</section>
 													<section className='BlockOrderUserList__Content__item__content'>
 															<div className='BlockOrderUserList__Content__item__content__info'>

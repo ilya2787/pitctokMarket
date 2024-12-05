@@ -21,12 +21,13 @@ const CatalogName:FC = () => {
 	const AddProductBasket = DataApp.AddProductBasket
 	const DataCatalog = useContext(ContextCatalog)
 	const ListProduction = DataCatalog.ListProduction
+	const setListProduction = DataCatalog.setListProduction
 	const ListUserFavorites = DataCatalog.ListUserFavorites
 	const setListUserFavorites = DataCatalog.setListUserFavorites
 	const setTitlePageNav = DataCatalog.setTitlePageNav
 	const {CatalogName} = useParams<{CatalogName?: string}>();
 	const [CheckedAvailable, setCheckedAvailable] = useState<boolean>(false)
-
+	const [TitleSorting, setTitleSorting] = useState<string>('С начало дорогие')
 
 useEffect(() => {
 	axios.post<TypeListUserFavorites[]>('/ListFavoritesProduct', {idUser: IdUser})
@@ -36,9 +37,33 @@ useEffect(() => {
 	.catch(err => console.log(err))
 },[CheckedAvailable])
 
+useEffect(() => {
+	if(TitleSorting === 'С начало дорогие'){
+		setListProduction((data) => {
+			const dataItem = [...data];
+			dataItem.sort((a, b) => Number(b.price) - Number(a.price));
+			return dataItem;
+		})
+	}
+	if(TitleSorting === 'С начало дешевые'){
+		setListProduction((data) => {
+			const dataItem = [...data];
+			dataItem.sort((a, b) => Number(a.price) - Number(b.price));
+			return dataItem;
+		})
+	}
+	if(TitleSorting === 'Новинки'){
+		setListProduction((data) => {
+			const dataItem = [...data];
+			dataItem.sort((a, b) => b.newStatus - a.newStatus);
+			return dataItem;
+		})
+	}
+},[TitleSorting])
+
 	return (
 						<div className='Content_categories'> 
-						<FilterProduction setCheckedAvailable={setCheckedAvailable}/>
+						<FilterProduction setCheckedAvailable={setCheckedAvailable} setTitleSorting={setTitleSorting} TitleSorting={TitleSorting}/>
 						{ListProduction.map((d,i) => (
 							CatalogListNav.map((dNav, i) => (
 								CatalogName === dNav.Link || CatalogName === 'All'?

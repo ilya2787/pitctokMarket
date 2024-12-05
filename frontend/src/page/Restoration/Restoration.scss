@@ -1,0 +1,79 @@
+@import '../../style/config/color';
+
+.PageRestoration{
+	&__Content{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		&__Block{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			row-gap: 40px;
+			align-items: center;
+			width: 80%;
+			background-color: #f5efe9;
+			padding: 50px 20px;
+			border-radius: 8px;
+			&__title{
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: center;
+				column-gap: 20px;
+				width: 100%;
+				img{
+					filter: opacity(70%);
+				}
+				h3{
+					color: $RedColor;
+					font-size: 23px;
+					letter-spacing: 2px;
+				}
+			}
+			p{
+				color: $GryBlackText;
+				font-size: 22px;
+				text-align: justify;
+			}
+			&__titleRest{
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				column-gap: 20px;
+				width: 100%;
+				span{
+					background-color: $RedColor;
+					width: 100%;
+					height: 3px;
+				}
+				h3{
+					color: $RedColor;
+					font-size: 23px;
+					letter-spacing: 2px;
+					min-width: max-content;
+				}
+				&__Element{
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					align-items: center;
+					column-gap: 50px;
+					&__text{
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						background-color: #FFFEF8;
+						width: 210px;
+						height: 60px;
+						border-radius: 8px;
+						color: $GryBlackText;
+						font-size: 20px;
+					}
+				}
+			}
+		}
+	}
+}
