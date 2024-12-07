@@ -41,6 +41,9 @@
 			padding: 10px 20px;
 			border-radius: 10px;
 			box-shadow: 5px 5px 6px 0 rgba(10, 10, 10, 0.274);
+			@media (max-width: 830px) {
+				width: 90%;
+			}
 			&__title{
 				display: flex;
 				flex-direction: row;
@@ -48,6 +51,10 @@
 				align-items: center;
 				padding: 10px 0;
 				border-bottom: 2px solid $RedColor;
+				@media (max-width:1160px) {
+					flex-direction: column;
+					text-align: center;
+				}
 				h3{
 					font-size: 30px;
 					color: $GryBlackText;
@@ -64,6 +71,13 @@
 					font-size: 25px;
 					color: $GryBlackText;
 					border-bottom: 2px solid #9c8a8a;
+					@media (max-width:900px) {
+						min-width: max-content;
+					}
+					@media (max-width:470px) {
+						min-width: 300px;
+						width: 300px;
+					}
 				}
 			}
 			&__text{

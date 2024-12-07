@@ -13,7 +13,7 @@ const [OpenBasketModal, setOpenBasketModal] = useState<boolean>(false)
 const [quantityProduct, setQuantityProduct] = useState<number>(0)
 
  return (
-	<>
+	<> 
 		<section className='IconUser'>
 			<div className='IconUser__basket'>
 				<a href='#' onClick={() => setOpenBasketModal(true)} className='IconUser__basket__icon'>{ICON.Basket}</a>

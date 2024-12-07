@@ -55,8 +55,8 @@ const functionFullPrice = ListBasket.reduce((d, i) => d + i.quantity_item * i.pr
 								<h3>Общая сумма:</h3>
 								<p>{NumberPriceF(functionFullPrice)}</p>
 							</span>
-							<Link to={`/MakingAnOrder/${IdUser}`}>
-									<button className='ContentBasket__FullPriceAndBTN__Arrange'>Оформить</button>
+							<Link to={`/MakingAnOrder/${IdUser}`} className='ContentBasket__FullPriceAndBTN__Arrange'>
+									<button >Оформить</button>
 							</Link>
 						</div>
 					</>

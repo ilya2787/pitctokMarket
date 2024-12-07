@@ -19,7 +19,7 @@
 		@include settingLine(100%)
 	}
 	h3{
-		font-size: 30px;
+		font-size: clamp(23px, 2.5vw, 30px);
 		color: $GryBlackText;
 		min-width: max-content;
 	}

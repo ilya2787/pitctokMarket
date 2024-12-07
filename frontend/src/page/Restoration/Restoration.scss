@@ -16,6 +16,9 @@
 			background-color: #f5efe9;
 			padding: 50px 20px;
 			border-radius: 8px;
+			@media (max-width:850px) {
+				width: 90%;
+			}
 			&__title{
 				display: flex;
 				flex-direction: row;
@@ -28,13 +31,13 @@
 				}
 				h3{
 					color: $RedColor;
-					font-size: 23px;
+					font-size: clamp(19px, 1.5vw, 23px);
 					letter-spacing: 2px;
 				}
 			}
 			p{
 				color: $GryBlackText;
-				font-size: 22px;
+				font-size: clamp(19px, 1.8vw, 22px);
 				text-align: justify;
 			}
 			&__titleRest{
@@ -51,9 +54,13 @@
 				}
 				h3{
 					color: $RedColor;
-					font-size: 23px;
+					font-size: clamp(19px, 1.5vw, 23px);
 					letter-spacing: 2px;
 					min-width: max-content;
+					@media (max-width:440px) {
+						min-width: 200px;
+						text-align: center;
+					}
 				}
 				&__Element{
 					display: flex;
@@ -61,6 +68,11 @@
 					justify-content: center;
 					align-items: center;
 					column-gap: 50px;
+					@media (max-width:1280px) {
+						column-gap: 10px;
+						flex-wrap: wrap;
+						row-gap: 10px;
+					}
 					&__text{
 						display: flex;
 						justify-content: center;

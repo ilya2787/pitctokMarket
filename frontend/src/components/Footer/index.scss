@@ -18,6 +18,19 @@
 	height: 700px;
 	position: relative;
 	background: linear-gradient(90deg, rgba(39,1,1,1) 0%, rgba(5,1,1,1) 78%);
+	@media (max-width:1800px) {
+		column-gap: 500px;
+	}
+	@media (max-width:1500px) {
+		column-gap: 200px;
+	}
+	@media (max-width:1000px) {
+		flex-direction: column;
+		column-gap: 0;
+		align-items: center;
+		height: max-content;
+		padding: 50px 15px 130px 15px;
+	}
 	&_left{
 		display: flex;
 		flex-direction: column;
@@ -31,15 +44,34 @@
 			transform: rotate(20deg);
 			opacity: 10%;
 			top: 30px;
+			@media (max-width:1000px) {
+				width: 400px;
+			}
+			@media (max-width:800px) {
+				width: 300px;
+			}
+		}
+		&__TitleComp{
+			@media (max-width:400px) {
+				display: none;
+			}
+		}
+		&__TitleCompSmallMobile{
+			@media (min-width:400px) {
+				display: none;
+			}
 		}
 		&_Address{
 			margin-top: 200px;
+			@media (max-width:1000px) {
+				margin-top: 50px;
+			}
 			h4{
 				@include SettingTitle()
 			}
 			p{
 				color: $GryColorText;
-				font-size: 25px;
+				font-size: clamp(20px, 1.8vw, 25px);
 			}
 		}
 	}
@@ -49,10 +81,19 @@
 		justify-content: space-between;
 		align-items: flex-start;
 		height: 100%;
+		@media (max-width:1100px) {
+			justify-content: flex-start;
+		}
 		&_MenuTitle{
-			@include SettingTitle()
+			@include SettingTitle();
+			@media (max-width:1100px) {
+				display: none;
+			}
 		}
 		&_Menu{
+			@media (max-width:1100px) {
+				display: none;
+			}
 			ul{
 				display: flex;
 				flex-direction: row;
@@ -70,7 +111,10 @@
 			}
 		}
 		&_ContactTitle{
-			@include SettingTitle()
+			@include SettingTitle();
+			@media (max-width:1000px) {
+				display: none;
+			}
 		}
 		&_Contact{
 			display: flex;
@@ -78,10 +122,44 @@
 			justify-content: center;
 			align-items: flex-start;
 			column-gap: 100px;
+			@media (max-width:1400px) {
+				column-gap: 30px;
+			}
+			@media (max-width:1100px) {
+				flex-direction: column;
+				column-gap: 0;
+				row-gap: 40px;
+			}
 			&__Social{
 				display: flex;
 				flex-direction: column;
 				row-gap: 40px;
+				@media (max-width:1000px) {
+					row-gap: 20px;
+					flex-direction: row;
+					column-gap: 30px;
+					margin-top: 50px;
+				}
+				@media (max-width:570px) {
+					display: none;
+				}
+				
+			}
+			&__SocialSmall{
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				column-gap: 30px;
+				margin-top: 50px;
+				@media (min-width:570px) {
+					display: none;
+				}
+			}
+			&__Phone{
+				@media (max-width:1000px) {
+					display: none;
+				}
 			}
 		}
 	}

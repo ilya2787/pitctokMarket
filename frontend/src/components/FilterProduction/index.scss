@@ -7,10 +7,22 @@
 	align-items: flex-start;
 	column-gap: 40px;
 	width: 100%;
+	@media (max-width:1070px) {
+		margin-bottom: 30px;
+	}
+	@media (max-width:530px) {
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-end;
+		row-gap: 20px;
+	}
 	&__available{
 		background-color: #f5efe9;
 		padding: 10px 30px;
 		border-radius: 8px;
+		@media (max-width:935px) {
+			padding: 5px 25px;
+		}
 		input[type=checkbox]:checked,
 		input[type=checkbox]:not(:checked){
 			position: absolute;
@@ -22,7 +34,7 @@
 				position: relative;
 				padding-left: 45px;
 				line-height: 32px;
-				font-size: 19px;
+				font-size: clamp(15px, 1.6vw, 19px);
 				color: $GryBlackText;
 				letter-spacing: 2px;
 				cursor: pointer;
@@ -77,16 +89,23 @@
 		padding: 15px 30px 0 30px;
 		border-radius: 8px;
 		position: relative;
+		@media (max-width:935px) {
+			padding: 5px 20px 0 20px;
+		}
 		&_title{
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
 			column-gap: 20px;
-			font-size: 19px;
+			font-size:  clamp(15px, 1.6vw, 19px);
 			color: $GryBlackText;
 			letter-spacing: 2px;
 			width: 280px;
 			cursor: pointer;
+			@media (max-width:935px) {
+				align-items: center;
+				width: 230px;
+			}
 			&_Icon{
 				color: $GryBlackText;
 				font-size: 25px;
@@ -107,6 +126,9 @@
 			overflow: hidden;
 			transition: height ease 0.9s;
 			z-index: 2;
+			@media (max-width:935px) {
+				top: 40px;
+			}
 			ul{
 				display: flex;
 				flex-direction: column;
@@ -115,7 +137,7 @@
 				padding: 10px 10px 20px 10px;
 				li{
 					color: $GryBlackText;
-					font-size: 19px;
+					font-size: clamp(15px, 1.6vw, 19px);
 					cursor: pointer;
 				}
 			}

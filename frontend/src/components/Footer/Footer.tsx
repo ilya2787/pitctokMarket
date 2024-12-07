@@ -29,7 +29,12 @@ const Footer:FC<TypeProps> = ({ListMenuPage, ListSocialPage}) => {
 						<footer className='Footer'> 
 								 <section className='Footer_left'>
 										<img src="http://localhost:3000/img/LOGO.svg" alt="LOGO" className='Footer_left__Logo_Fon'/>
-										<CompanyName FontSizeH2='90px' FontSizeH3_1='50px' FontSizeH3_2='40px'/>
+										<div className='Footer_left__TitleComp'>
+											<CompanyName FontSizeH2='90px' FontSizeH3_1='50px' FontSizeH3_2='40px'/>
+										</div>
+										<div className='Footer_left__TitleCompSmallMobile'>
+											<CompanyName FontSizeH2='70px' FontSizeH3_1='32px' FontSizeH3_2='25px'/>
+										</div>
 									<div className='Footer_left_Address'>
 											<h4>Адрес</h4>
 											<p>Калининградская область,<br/>
@@ -50,6 +55,11 @@ const Footer:FC<TypeProps> = ({ListMenuPage, ListSocialPage}) => {
 													<div className='Footer_right_Contact__Social'>
 														{ListSocialPage.map((d,i) => (
 															<Social key={d.id} TitleLink={d.title} IconLink={d.Icon} LinkA={d.LinkA} LinkP={d.LinkP} ShowText={true}/>
+														))}
+													</div>
+													<div className='Footer_right_Contact__SocialSmall'>
+														{ListSocialPage.map((d,i) => (
+															<Social key={d.id} TitleLink={d.title} IconLink={d.Icon} LinkA={d.LinkA} LinkP={d.LinkP} ShowText={false}/>
 														))}
 													</div>
 													<div className='Footer_right_Contact__Phone'>

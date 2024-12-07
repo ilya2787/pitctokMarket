@@ -21,6 +21,11 @@ const HeaderContentPage:FC = () => {
 												<Social key={d.id} IconLink={d.Icon} TitleLink={d.title} LinkA={d.LinkA} LinkP={d.LinkP} ShowText={false}/>
 											))}
 									</div>
+									<div className='HeaderContentPage_Contact_SocialMobile'>
+									{ListSocial.map((d,i) => (
+												<Social key={d.id} IconLink={d.Icon} TitleLink={d.title} LinkA={d.LinkA} LinkP={d.LinkP} ShowText={true}/>
+											))}
+									</div>
 										<div className='HeaderContentPage_Contact_Phone'>
 											<PhoneContact flex_direction="column-reverse" flex_direction_Kalin='column'  ShowName={false} ShowTitle={true} row_gap='10px'/>
 										</div>	
@@ -30,10 +35,13 @@ const HeaderContentPage:FC = () => {
 											<CompanyName FontSizeH2='90px' FontSizeH3_1='50px' FontSizeH3_2='40px'/>
 									<img src="http://localhost:3000/img/LOGO.svg" alt="logo" />
 								 </section>
-								 <section className='HeaderContentPage_User'>
-								 <HeaderIcon OpenBlock={() => setOpenBlock(!OpenBlock)}/>
-								 <HeaderBlockUser OpenBlock={OpenBlock} />
+								 <section className='HeaderContentPage_TitleSmallMobile'>
+											<CompanyName FontSizeH2='70px' FontSizeH3_1='32px' FontSizeH3_2='25px'/>
 								 </section>
+								 <div className='HeaderContentPage_User'>
+										<HeaderIcon OpenBlock={() => setOpenBlock(!OpenBlock)}/>
+										<HeaderBlockUser OpenBlock={OpenBlock} />
+								 </div>
 						</header>
 )
 }

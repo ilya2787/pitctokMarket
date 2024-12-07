@@ -79,6 +79,11 @@
 			justify-content: flex-start;
 			align-items: center;
 			column-gap: 30px;
+			@media (max-width:870px) {
+				flex-direction: column;
+				row-gap: 20px;
+				align-items: flex-start;
+			}
 			h3{
 				font-size: 20px;
 				color: $GryBlackText;
@@ -98,6 +103,10 @@
 				display: flex;
 				flex-direction: row;
 				column-gap: 40px;
+				@media (max-width:870px) {
+					flex-direction: column;
+					row-gap: 20px;
+				}
 				&__address{
 					position: relative;
 					width: 100%;
@@ -198,6 +207,10 @@
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
+			@media (max-width:750px) {
+				flex-direction: column;
+				row-gap: 20px;
+			}
 			&__fullPrice{
 				display: flex;
 				flex-direction: row;
@@ -225,6 +238,11 @@
 				border-radius: 8px;
 				letter-spacing: 2px;
 				transition: all 0.3s ease;
+				@media (max-width:750px) {
+					padding: 0;
+					height: 50px;
+					width: 100%;
+				}
 				&:hover{
 					background-color: #d9d0c0;
 				}

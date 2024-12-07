@@ -91,7 +91,9 @@ useEffect(() => {
 															<p>Описание:</p><p>{d.description}</p>
 														</div>
 											</div>
-											<HeardProduct id={d.id} ListUserFavorites={ListUserFavorites} setListUserFavorites={setListUserFavorites}/>
+											<div className='ItemProduct_top__Heard'>
+												<HeardProduct id={d.id} ListUserFavorites={ListUserFavorites} setListUserFavorites={setListUserFavorites}/>
+											</div>
 										</div>
 										<div className='ItemProduct_bottom'>
 													<div className='ItemProduct_bottom__availability'>

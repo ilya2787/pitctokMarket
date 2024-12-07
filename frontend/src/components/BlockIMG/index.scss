@@ -8,10 +8,10 @@
 	align-items: center;
 	column-gap: 100px;
 	img{
-		width: 400px;
+		width: clamp(200px, 20vw, 400px);
 	}
 	p{
-		font-size: 60px;
+		font-size: clamp(30px, 4vw, 60px);
 		color: #FFFEF8;
 		text-shadow: 2px 2px 0 #976E3F;
 	}
@@ -24,19 +24,32 @@
 	align-items: center;
 	font-family: "Marck Script", cursive;
 	padding: 30px 0;
-	background-image: url('../../../public/img/FonBlockIMG.jpg');
+	background: url('../../../public/img/FonBlockIMG.jpg');
 	background-color: rgba(23, 4, 4, 0.873);
 	background-repeat: no-repeat;
 	background-position: 50% 0;
 	background-size: 100% auto;
 	background-blend-mode: multiply;
+	@media (max-width:840px) {
+		row-gap: 20px;
+		background-size: auto 100% ;
+	}
 	&_VintageFurniture{
-			@include Setting(row-reverse)
+			@include Setting(row-reverse);
+			@media (max-width:840px) {
+				@include Setting(column-reverse);
+			}
 	}
 	&_OakAndWalnut{
-		@include Setting(row)
+		@include Setting(row);
+		@media (max-width:840px) {
+			@include Setting(column-reverse);
+		}
 	}
 	&_Watch{
-		@include Setting(row-reverse)
+		@include Setting(row-reverse);
+		@media (max-width:840px) {
+			@include Setting(column-reverse);
+		}
 	}
 }

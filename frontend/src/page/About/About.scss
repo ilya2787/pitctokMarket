@@ -30,6 +30,9 @@ $img-dir-path: '/img/';
 			background-color: #f5efe9;
 			padding: 50px 0;
 			border-radius: 8px;
+			@media (max-width: 1250px) {
+				width: 90%;
+			}
 			&__title{
 				display: flex;
 				flex-direction: row;
@@ -38,12 +41,16 @@ $img-dir-path: '/img/';
 				column-gap: 20px;
 				width: 100%;
 				margin-left: 50px;
+				@media (max-width:450px) {
+					flex-direction: column;
+					margin-left: 0;
+				}
 				img{
 					filter: opacity(70%);
 				}
 				h3{
 					color: $RedColor;
-					font-size: 25px;
+					font-size: clamp(19px, 1.8vw, 25px);
 					letter-spacing: 2px;
 				}
 			}
@@ -51,14 +58,14 @@ $img-dir-path: '/img/';
 				width: 100%;
 				text-align: center;
 				color: $GryBlackText;
-				font-size: 24px;
+				font-size: clamp(18px, 1.8vw, 24px);
 				letter-spacing: 2px;
 			}
 			&__p{
 				width: 100%;
 				text-align: center;
 				color: $GryBlackText;
-				font-size: 22px;
+				font-size: clamp(17px, 1.5vw, 22px);
 				letter-spacing: 2px;
 				padding: 40px 20px;
 			}
@@ -68,12 +75,20 @@ $img-dir-path: '/img/';
 				justify-content: center;
 				align-items: flex-start;
 				row-gap: 40px;
+				@media (max-width:1130px) {
+					align-items: center;
+				}
 				&__Kaliningrad{
 					display: flex;
 					flex-direction: row;
 					justify-content: center;
 					align-items: flex-start;
 					column-gap: 50px;
+					@media (max-width: 1130px) {
+						flex-direction: column;
+						row-gap: 20px;
+						align-items: center;
+					}
 					&__maps{
 						display: flex;
 						justify-content: center;
@@ -82,18 +97,21 @@ $img-dir-path: '/img/';
 						border-radius: 8px;
 						padding: 10px;
 						width: max-content;
+						@media (max-width:600px) {
+							max-width: 300px;
+						}
 					}
 					&__text{
 						h3{
 							color:$RedColor;
-							font-size: 22px;
+							font-size: clamp(17px, 1.5vw, 22px);
 							letter-spacing: 1px;
 						}
 						span{
 							display: flex;
 							flex-direction: row;
 							column-gap: 20px;
-							font-size: 20px;
+							font-size: clamp(14px, 1.5vw, 20px);
 							color: $GryBlackText;
 							p:last-child{
 								color: $RedColor_hover;
@@ -105,7 +123,7 @@ $img-dir-path: '/img/';
 				&__textSPB{
 					width: 100%;
 					text-align: center;
-					font-size: 22px;
+					font-size: clamp(17px, 1.5vw, 22px);
 					color: $GryBlackText;
 				}
 				&__SPB{
@@ -116,6 +134,10 @@ $img-dir-path: '/img/';
 					border-radius: 8px;
 					padding: 10px;
 					width: max-content;
+					@media (max-width:600px) {
+						max-width: 300px;
+						width: 100%;
+					}
 				}
 			}
 			&__10years{
@@ -128,24 +150,56 @@ $img-dir-path: '/img/';
 				justify-content: flex-start;
 				align-items: center;
 				padding: 0 0 0 20px;
+				@media (max-width:1100px) {
+					flex-direction: column-reverse;
+					padding: 0;
+				}
+				@media (max-width:1000px) {
+					height: 500px;
+				}
 				p{
 					margin-right: -150px;
 					font-size: 23px;
 					width: 850px;
 					color: $GryBlackText;
 					text-align: center;
+					@media (max-width:1370px) {
+						width: 500px;
+					}
+					@media (max-width:1100px) {
+						width: max-content;
+						margin-right: 0;
+						position: absolute;
+						left: 20px;
+						top: 50px;
+						z-index: 3;
+						color: #fff;
+						font-size: clamp(19px, 2vw, 23px);
+					}
+					@media (max-width:1000px) {
+						left: 0;
+						right: 0;
+						top: 20px;
+						width: 100%;
+						font-size: clamp(18px, 1.5vw, 22px);
+					}
 				}
 				&__Icon{
 					width: 70%;
 					height: 100%;
 					flex-grow: 1;
+					@media (max-width:1100px) {
+						width: 100%;
+					}
 					&__Fon{
 						display: flex;
 						justify-content: flex-end;
 						width: 100%;
 						height: 100%;
 						background-color: #B73737;
-						clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+						@media (min-width:1100px) {
+							clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+						}
 						&__content{
 							width: 95%;
 							height: 100%;
@@ -160,6 +214,19 @@ $img-dir-path: '/img/';
 								position: relative;
 								width: 220px;
 								height: 220px;
+								@media (max-width:1100px) {
+									margin-right: -600px;
+								}
+								@media (max-width:1000px) {
+									top: 40px;
+									margin-right: -400px;
+								}
+								@media (max-width:800px) {
+									margin-right: -200px;
+								}
+								@media (max-width:580px) {
+									margin-right: -100px;
+								}
 								&__circle1{
 									display: flex;
 									justify-content: center;
@@ -245,7 +312,7 @@ $img-dir-path: '/img/';
 				}
 				h3{
 					color: $RedColor;
-					font-size: 24px;
+					font-size: clamp(19px, 1.5vw, 24px);
 					letter-spacing: 2px;
 					min-width: max-content;
 				}
@@ -257,10 +324,19 @@ $img-dir-path: '/img/';
 				align-items: stretch;
 				row-gap: 5px;
 				flex-wrap: wrap;
+				@media (max-width:750px) {
+					column-gap: 5px;
+				}
 				&__item{
 					flex: 0 0 33%;
 					position: relative;
 					border-radius: 8px;
+					@media (max-width:750px) {
+						flex: 0 0 49%;
+					}
+					@media (max-width:450px) {
+						flex: 0 0 100%;
+					}
 					video{
 						width: 100%;
 						border-radius: 8px;
@@ -277,7 +353,7 @@ $img-dir-path: '/img/';
 						text-align: center;
 						padding: 10px;
 						color: #fff;
-						font-size: 24px;
+						font-size: clamp(19px,1.8vw, 24px);
 						letter-spacing: 2px;
 						background-color: #180c0caf;
 						border-radius: 8px;
@@ -294,6 +370,10 @@ $img-dir-path: '/img/';
 				flex-direction: row;
 				justify-content: space-around;
 				align-items: center;
+				@media (max-width:750px) {
+					flex-direction: column;
+					row-gap: 20px;
+				}
 				span{
 					color: $GryBlackText;
 					font-size: 23px;

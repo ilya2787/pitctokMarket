@@ -26,7 +26,12 @@ const [OpenBlock, setOpenBlock] = useState<boolean>(false)
 												<img src="./img/GrandAntiques.png" alt="GrandAntiques" />
 										</div>
 									</section>
-									<CompanyName FontSizeH2='clamp(50px, 10vw, 190px)' FontSizeH3_1='clamp(52px, 6vw, 102px)' FontSizeH3_2='clamp(30px, 4.8vw, 80px)'/>
+									<div className='Header_top__TitleMain'>
+										<CompanyName FontSizeH2='clamp(100px, 8vw, 190px)' FontSizeH3_1='clamp(52px, 6vw, 102px)' FontSizeH3_2='clamp(40px, 4.8vw, 80px)'/>
+									</div>
+									<div className='Header_top__TitleMainMobile'>
+										<CompanyName FontSizeH2='70px' FontSizeH3_1='32px' FontSizeH3_2='25px'/>
+									</div>
 									<HeaderIcon OpenBlock={() => setOpenBlock(!OpenBlock)} />
 									<HeaderBlockUser OpenBlock={OpenBlock}/>
 							</div>
@@ -38,6 +43,9 @@ const [OpenBlock, setOpenBlock] = useState<boolean>(false)
 								</section>
 								<section className='Header_Contact__Phone'>
 										<PhoneContact flex_direction="row" flex_direction_Kalin='column' column_gap='80px' ShowName={true} ShowTitle={true}/>
+								</section>
+								<section className='Header_Contact__PhoneSmall'>
+										<PhoneContact flex_direction="column-reverse" flex_direction_Kalin='column' row_gap='10px' ShowName={true} ShowTitle={true}/>
 								</section>
 							</div>
 

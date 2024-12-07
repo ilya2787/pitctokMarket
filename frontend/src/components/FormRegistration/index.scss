@@ -34,6 +34,9 @@
 	align-items: center;
 	position: relative;
 	width: 70%;
+	@media (max-width:850px) {
+		width: 90%;
+	}
 	&_section{
 		width: 50%;
 		position: relative;
@@ -45,6 +48,9 @@
 		}
 		@media (max-width:1000px) {
 			width: 80%;
+		}
+		@media (max-width:850px) {
+			width: 100%;
 		}
 	}
 	span{
@@ -118,11 +124,15 @@
 			text-align: center;
 			height: max-content;
 			transition: all 0.5s;
+
 		}
 		.offscreen{
 			transition: all 0.5s;
 			height: 0;
 			max-width: 450px;
+			@media (max-width:560px) {
+				font-size: 10px;
+			}
 		}
 		&_pass{
 			@include InputSetting(0)

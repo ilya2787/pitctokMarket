@@ -1,6 +1,7 @@
-import React, { createContext, FC, useState, useRef, useEffect, Dispatch, SetStateAction } from 'react';
+import React, { createContext, FC, useState,  useEffect, Dispatch, SetStateAction, Suspense } from 'react';
 import './style/App.scss';
-import { createBrowserRouter, RouterProvider, useLocation} from 'react-router-dom';
+// import Loader from 'react-ts-loaders';
+import { createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Home from './page/Home';
 import Error404 from './page/Error404';
 import Catalog from './page/Catalog/Catalog';
@@ -25,6 +26,7 @@ import ActiveOrder from './page/Account/ActiveOrder';
 import Restoration from './page/Restoration/Restoration';
 import Delivery from './page/Delivery/Delivery';
 import About from './page/About/About';
+
 
 const rout = createBrowserRouter([
   {
@@ -286,26 +288,27 @@ useEffect(() => {
 
 
   return (
-		<Context.Provider value={
-			{
-				ListMenu: ListMenu,
-				CatalogListNav: CatalogListNav,
-				setCatalogListNav: setCatalogListNav,
-				ListSocial: ListSocial,
-				idUsers: idUser,
-				setIdUser: setIdUser,
-				Auth: Auth,
-				setAuth: setAuth,
-				LastName:LastName,
-				setLastName: setLastName,
-				ListUsers: ListUsers,
-				setListUsers: setListUsers,
-				ListBasket: ListBasket,
-				setListBasket: setListBasket,
-				AddProductBasket: AddProductBasket
-			}
-		}>
-			<RouterProvider router={rout} />
+		
+			<Context.Provider value={
+				{
+					ListMenu: ListMenu,
+					CatalogListNav: CatalogListNav,
+					setCatalogListNav: setCatalogListNav,
+					ListSocial: ListSocial,
+					idUsers: idUser,
+					setIdUser: setIdUser,
+					Auth: Auth,
+					setAuth: setAuth,
+					LastName:LastName,
+					setLastName: setLastName,
+					ListUsers: ListUsers,
+					setListUsers: setListUsers,
+					ListBasket: ListBasket,
+					setListBasket: setListBasket,
+					AddProductBasket: AddProductBasket
+				}
+			}>
+				<RouterProvider router={rout} />
 			</Context.Provider>
   );
 }
